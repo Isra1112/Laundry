@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +13,8 @@
 
     <title>Chain App Dev - App Landing Page HTML5 Template</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url('assets/bootstrap/js/bootstrap.min.css'); ?>" rel="stylesheet">
+    <!-- Bootstrap core CSS --> 
+    <link href="<?php echo base_url('vendorr/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
 
 <!--
 
@@ -667,15 +666,15 @@ https://templatemo.com/tm-570-chain-app-dev
             <h4>About Us</h4>
             <ul>
               <li><a href="#">Home</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Pricing</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#clients">Testimonials</a></li>
+              <li><a href="#pricing">Pricing</a></li>
             </ul>
             <ul>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Pricing</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#clients">Testimonials</a></li>
+              <li><a href="#pricing">Pricing</a></li>
             </ul>
           </div>
         </div>
@@ -717,8 +716,10 @@ https://templatemo.com/tm-570-chain-app-dev
 
 
   <!-- Scripts -->
-  <script src="<?php echo base_url('assets/jquery/jquery.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+  <script src="<?php echo base_url('vendorr/jquery/jquery.min.js'); ?>"></script>
+  <script src="<?php echo base_url('vendorr/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+
+
   <script src="<?php echo base_url('js/owl-carousel.js'); ?>"></script>
   <script src="<?php echo base_url('js/animation.js'); ?>"></script>
   <script src="<?php echo base_url('js/imagesloaded.js'); ?>"></script>
