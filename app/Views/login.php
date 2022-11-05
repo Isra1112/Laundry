@@ -38,7 +38,7 @@
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block center">
-                                <img src="<?php echo base_url('img/Modern and Minimalist Laundry Business Logo.png'); ?>" alt="">
+                                <img src="<?php echo base_url('img/Modern and Minimalist Laundry Business Logo (3).png'); ?>" alt="">
                             </div>
                             <div class="col-lg-6">
                                 <div class="p-5 m-4">
