@@ -35,27 +35,27 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::dashboard',['filter' => 'auth']);
+$routes->get('/', 'Home::dashboard');
 
-$routes->add('/logout', 'Login::logout');
+// $routes->add('/logout', 'Login::logout');
 // $routes->get('/dashboard', 'Home::index',['filter' => 'auth']);
-$routes->get('/lp', 'Test::index');
+$routes->get('/lp', 'Test::index',['filter' => 'login']);
 $routes->get('/home', 'Home::index');
 $routes->get('/home/about', 'Home::about');
 
-$routes->group('login', ['filter' => 'loggedins'], function ($routes) {
-    $routes->get('/', 'Login::index');
-    $routes->add('cek', 'Login::login');
-});
+// $routes->group('login', function ($routes) {
+//     $routes->get('/', 'Login::index');
+//     $routes->add('cek', 'Login::login');
+// });
 
-$routes->group('customer',['filter' => 'auth'], function($routes){
+$routes->group('customer', function($routes){
 	$routes->get('', 'Customer::index');
 	$routes->get('(:segment)/preview', 'Customer::preview/$1');
     $routes->add('create', 'Customer::create');
 	$routes->add('(:segment)/edit', 'Customer::edit/$1');
 	$routes->get('(:segment)/delete', 'Customer::delete/$1');
 });
-$routes->group('package',['filter' => 'auth'], function($routes){
+$routes->group('package', function($routes){
 	$routes->get('', 'Package::index');
 	$routes->get('(:segment)/preview', 'Package::preview/$1');
     $routes->add('create', 'Package::create');
@@ -65,7 +65,7 @@ $routes->group('package',['filter' => 'auth'], function($routes){
 	$routes->get('(:segment)/delete', 'Package::delete/$1');
 });
 
-$routes->group('report',['filter' => 'auth'], function($routes){
+$routes->group('report', function($routes){
 	$routes->get('', 'outlet::index');
 	$routes->get('(:segment)/preview', 'outlet::preview/$1');
     $routes->add('create', 'outlet::create');
@@ -73,7 +73,7 @@ $routes->group('report',['filter' => 'auth'], function($routes){
 	$routes->get('(:segment)/delete', 'outlet::delete/$1');
 });
 
-$routes->group('user',['filter' => 'auth'], function($routes){
+$routes->group('user', function($routes){
 	$routes->get('', 'user::index');
 	$routes->get('(:segment)/preview', 'user::preview/$1');
     $routes->add('create', 'user::create');
@@ -81,7 +81,7 @@ $routes->group('user',['filter' => 'auth'], function($routes){
 	$routes->get('(:segment)/delete', 'user::delete/$1');
 });
 
-$routes->group('transaction',['filter' => 'auth'], function($routes){
+$routes->group('transaction', function($routes){
 	$routes->get('', 'transaksi::index');
 	$routes->get('konfirmasi', 'transaksi::konfirmasi');
 	$routes->get('(:segment)/preview', 'transaksi::preview/$1');

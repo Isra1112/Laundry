@@ -9,12 +9,12 @@ class Email extends BaseConfig
     /**
      * @var string
      */
-    public $fromEmail;
+    public $fromEmail = "12210086@bsi.ac.id";
 
     /**
      * @var string
      */
-    public $fromName;
+    public $fromName = "Isra Khairul Mutaqim";
 
     /**
      * @var string
@@ -33,7 +33,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $protocol = 'mail';
+    public $protocol = 'smtp';
 
     /**
      * The server path to Sendmail.
@@ -47,35 +47,35 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost;
+    public $SMTPHost ='mail.smtp2go.com';
 
     /**
      * SMTP Username
      *
      * @var string
      */
-    public $SMTPUser;
+    public $SMTPUser = 'isra.bsi.ac.id';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass;
+    public $SMTPPass = '6LaMNCMCB2wyveHr';
 
     /**
      * SMTP Port
      *
      * @var int
      */
-    public $SMTPPort = 25;
+    public $SMTPPort = 2525;
 
     /**
      * SMTP Timeout (in seconds)
      *
      * @var int
      */
-    public $SMTPTimeout = 5;
+    public $SMTPTimeout = 60;
 
     /**
      * Enable persistent SMTP connections
@@ -110,7 +110,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $mailType = 'text';
+    public $mailType = 'html';
 
     /**
      * Character set (utf-8, iso-8859-1, etc.)
