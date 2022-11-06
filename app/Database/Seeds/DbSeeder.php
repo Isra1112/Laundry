@@ -8,9 +8,9 @@ class DbSeeder extends Seeder
 {
     public function run()
     {
-        $this->call('Roles');
+        // $this->call('Roles');
         $this->call('Customers');
-        $this->call('Users');
+        // $this->call('Users');
         $this->call('Packages');
         
         $this->call('Transactions');

@@ -28,7 +28,6 @@ active
                             <th>Name</th>
                             <th>Username</th>
                             <th>Email</th>
-                            <th>Role</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -37,13 +36,12 @@ active
                         <?php foreach ($users as $key => $user) : ?>
                             <tr>
                                 <th scope="row"><?= $key + 1 ?></th>
-                                <td><?= $user['name'] ?></td>
-                                <td><?= $user['username'] ?></td>
-                                <td><?= $user['email'] ?></td>
-                                <td><?= $user['role'] ?></td>
+                                <td><?= $user->username ?></td>
+                                <td><?= $user->username ?></td>
+                                <td><?= $user->email ?></td>
                                 <td>
-                                    <a href="<?= base_url('user/' . $user['id'] . '/edit') ?>" data-href="<?= base_url('user/' . $user['id'] . '/edit') ?>" class="btn btn-sm btn-outline-success">edit</a>
-                                    <a href="#" data-href="<?= base_url('user/' . $user['id'] . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-outline-danger">Delete</a>
+                                    <a href="<?= base_url('user/' . $user->id . '/edit') ?>" data-href="<?= base_url('user/' . $user->id . '/edit') ?>" class="btn btn-sm btn-outline-success">edit</a>
+                                    <a href="#" data-href="<?= base_url('user/' . $user->id . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-outline-danger">Delete</a>
 
                                 </td>
 

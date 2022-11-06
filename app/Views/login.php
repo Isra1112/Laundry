@@ -35,6 +35,7 @@
                 <?php endif;?>
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
+                    <?= view('Myth\Auth\Views\_message_block') ?>
                         <!-- Nested Row within Card Body -->
                         <div class="row">
                             <div class="col-lg-6 d-none d-lg-block center">
@@ -46,7 +47,8 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Selamat Datang Kembali!</h1>
                                     </div>
-                                    <form class="user" method="post" action="login/cek">
+                                    <form class="user" method="post" action="<?= url_to('login')?>">
+                                    
                                         <div class="form-group">
                                             <input type="text" class="form-control form-control-user"
                                             name="username" class="form-control" id="username"

@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\MemberModel;
 use App\Models\RoleModel;
-use App\Models\UserModel;
+use Myth\Auth\Models\UserModel;
 
 class User extends BaseController
 {
@@ -13,8 +13,8 @@ class User extends BaseController
     {
         
         $users = new UserModel();
-        $users->select('users.*,roles.name as role');
-        $users->join('roles','users.role_id = roles.id');
+        $users->select('users.*');
+        $users->where('active = 1');
         $data['users'] = $users->findAll();
         return view('user/index',$data);
     }

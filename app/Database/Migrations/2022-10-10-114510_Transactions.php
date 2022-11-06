@@ -45,8 +45,10 @@ class Transactions extends Migration
             ],
             'user_id'       => [
                 'type'           => 'int',
-                'constraint'     => '5',
+                'constraint'     => '11',
                 'unsigned'       => TRUE,
+                'null'           => TRUE
+
             ],
             'customer_id'       => [
                 'type'           => 'int',
