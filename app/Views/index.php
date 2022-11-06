@@ -342,11 +342,11 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Isra</h4>
+                            <h4>Isra Khairul</h4>
                             <span class="date">30 November 2021</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Financial Apps</span>
+                            <span class="category">Karyawan Swasta</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 col-12">
                               <i class="fa fa-star"></i>
@@ -363,7 +363,7 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Prisma</h4>
+                            <h4>Prisma Muharrom</h4>
                             <span class="date">29 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
@@ -384,11 +384,11 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Alvin</h4>
+                            <h4>Alvin Ramadhan</h4>
                             <span class="date">27 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Business &amp; Economics</span>
+                            <span class="category">PNS</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 col-12">
                               <i class="fa fa-star"></i>
@@ -405,11 +405,11 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Arvan</h4>
+                            <h4>Arvan Maulana</h4>
                             <span class="date">24 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">New App Ecosystem</span>
+                            <span class="category">Pebisnis</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 col-12">
                               <i class="fa fa-star"></i>
@@ -426,11 +426,11 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Pendi</h4>
+                            <h4>Pendi Paelani</h4>
                             <span class="date">21 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Web Development</span>
+                            <span class="category">Influencer</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 col-12">
                               <i class="fa fa-star"></i>
@@ -447,11 +447,11 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Dirga</h4>
+                            <h4>Dirga Kusuma</h4>
                             <span class="date">22 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Web Development</span>
+                            <span class="category">Selebgram</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 col-12">
                               <i class="fa fa-star"></i>
@@ -477,16 +477,15 @@ https://templatemo.com/tm-570-chain-app-dev
                                 <img src="<?php echo base_url(
                                     'img/quote.png'
                                 ); ?>" alt="">
-                                <p>“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
-                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                                <p>“Recommended banget buat kamu yang berlokasi di Depok dan sekitarnya, kalau mau laundry disini aja enak. Pelayanan ramah, asyik, proses cepat dan bisa diantar kerumah.”</p>
                               </div>
                               <div class="down-content">
                                 <img src="<?php echo base_url(
                                     'img/client-image.jpg'
                                 ); ?>" alt="">
                                 <div class="right-content">
-                                  <h4>David Martino</h4>
-                                  <span>CEO of David Company</span>
+                                  <h4>Isra Khairul</h4>
+                                  <span>Karyawan Swasta</span>
                                 </div>
                               </div>
                             </div>
@@ -503,16 +502,15 @@ https://templatemo.com/tm-570-chain-app-dev
                                 <img src="<?php echo base_url(
                                     'img/quote.png'
                                 ); ?>" alt="">
-                                <p>“CTO, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
-                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                                <p>“Hasil laundry wangi, pakaian saya aman semua nggak ada yang rusak, apalagi hilang. Cocok kalau ngga ada waktu buat cuci pakaian. Thanks!”</p>
                               </div>
                               <div class="down-content">
                                 <img src="<?php echo base_url(
                                     'img/client-image.jpg'
                                 ); ?>" alt="">
                                 <div class="right-content">
-                                  <h4>Jake H. Nyo</h4>
-                                  <span>CTO of Digital Company</span>
+                                  <h4>Prisma M</h4>
+                                  <span>Pengusaha</span>
                                 </div>
                               </div>
                             </div>
@@ -529,16 +527,15 @@ https://templatemo.com/tm-570-chain-app-dev
                                 <img src="<?php echo base_url(
                                     'img/quote.png'
                                 ); ?>" alt="">
-                                <p>“May, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
-                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                                <p>“Kirain cuman ada cuci pakaian aja, ternyata layanannya lengkap banget bisa cuci sprei, selimut, bedcover sampe sepatu. Kamu harus langganan disini sekarang juga!”</p>
                               </div>
                               <div class="down-content">
                                 <img src="<?php echo base_url(
                                     'img/client-image.jpg'
                                 ); ?>" alt="">
                                 <div class="right-content">
-                                  <h4>May C.</h4>
-                                  <span>Founder of Catherina Co.</span>
+                                  <h4>Alvin Ramadhan</h4>
+                                  <span>PNS</span>
                                 </div>
                               </div>
                             </div>
