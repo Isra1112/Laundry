@@ -14,7 +14,9 @@
     <title>Chain App Dev - App Landing Page HTML5 Template</title>
 
     <!-- Bootstrap core CSS --> 
-    <link href="<?php echo base_url('vendorr/bootstrap/css/bootstrap.min.css'); ?>" rel="stylesheet">
+    <link href="<?php echo base_url(
+        'vendorr/bootstrap/css/bootstrap.min.css'
+    ); ?>" rel="stylesheet">
 
 <!--
 
@@ -26,7 +28,9 @@ https://templatemo.com/tm-570-chain-app-dev
 
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <link rel="stylesheet" href="<?php echo base_url('css/templatemo-chain-app-dev.css'); ?>">
+    <link rel="stylesheet" href="<?php echo base_url(
+        'css/templatemo-chain-app-dev.css'
+    ); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/animated.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/owl.css'); ?>">
 
@@ -54,18 +58,20 @@ https://templatemo.com/tm-570-chain-app-dev
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <a href="index.html" class="logo">
-              <img src="<?php echo base_url('img/a.png'); ?>" alt="Chain App Dev">
+            <a href="index.html" class="logo"logo>
+              <img src="<?php echo base_url(
+                  'img/a.png'
+              ); ?>" alt="Chain App Dev">
             </a>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-              <li class="scroll-to-section"><a href="#services">Services</a></li>
-              <li class="scroll-to-section"><a href="#about">About</a></li>
-              <li class="scroll-to-section"><a href="#pricing">Pricing</a></li>
-              <li class="scroll-to-section"><a href="#newsletter">Newsletter</a></li>
-              <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Sign In Now</a></div></li> 
+              <li class="scroll-to-section"><a href="#top" class="active">Beranda</a></li>
+              <li class="scroll-to-section"><a href="#services">Layanan kami</a></li>
+              <li class="scroll-to-section"><a href="#about">Tentang kami</a></li>
+              <li class="scroll-to-section"><a href="#pricing">Harga</a></li>
+              <li class="scroll-to-section"><a href="#newsletter">Kontak kami</a></li>
+              <li><div class="gradient-button"><a id="modal_trigger" href="#modal"><i class="fa fa-sign-in-alt"></i> Login</a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
@@ -173,15 +179,15 @@ https://templatemo.com/tm-570-chain-app-dev
               <div class="left-content show-up header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Get The Latest App From App Stores</h2>
-                    <p>Chain App Dev is an app landing page HTML5 template based on Bootstrap v5.1.3 CSS layout provided by TemplateMo, a great website to download free CSS templates.</p>
+                    <h2>Layanan Laundry Premium Satuan dan Kiloan <br>Zero complain</h2>
+                    <p>Berpengalaman menangani item yang membutuhkan treatment khusus secara profesional dan menggunakan chemical yang ramah linkungan.</p>
                   </div>
-                  <div class="col-lg-12">
+                  <!-- <div class="col-lg-12">
                     <div class="white-button first-button scroll-to-section">
                       <a href="#contact">Free Quote <i class="fab fa-apple"></i></a>
-                    </div>
-                    <div class="white-button scroll-to-section">
-                      <a href="#contact">Free Quote <i class="fab fa-google-play"></i></a>
+                    </div> -->
+                    <!-- <div class="white-button scroll-to-section">
+                      <a href="#contact">Jemput Sekarang <i class="fab fa-google-play"></i></a> -->
                     </div>
                   </div>
                 </div>
@@ -203,55 +209,57 @@ https://templatemo.com/tm-570-chain-app-dev
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <div class="section-heading  wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.5s">
-            <h4>Amazing <em>Services &amp; Features</em> for you</h4>
-            <img src="<?php echo base_url('img/heading-line-dec.png'); ?>" alt="">
-            <p>If you need the greatest collection of HTML templates for your business, please visit <a rel="nofollow" href="https://www.toocss.com/" target="_blank">TooCSS</a> Blog. If you need to have a contact form PHP script, go to <a href="https://templatemo.com/contact" target="_parent">our contact page</a> for more information.</p>
+            <h4>Mengapa memilih <em>Fresh, Fast &amp; Clean?</em></h4>
+            <img src="<?php echo base_url(
+                'img/heading-line-dec.png'
+            ); ?>" alt="">
+            <p>Jasa Penyedia layanan laundry premium, profesional dan terlengkap yang berada di berbagai kota. Layanan kami berbeda dengan laundry kiloan pada umumnya, dengan komitmen untuk memberikan pelayanan yang segar, cepat dan cermat, namun tetap rapi dan bersih. <!-- <a rel="nofollow" href="https://www.toocss.com/" target="_blank">TooCSS</a> Blog. If you need to have a contact form PHP script, go to <a href="https://templatemo.com/contact" target="_parent">our contact page</a> for more information.--></p>
           </div>
         </div>
       </div>
     </div>
     <div class="container">
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="service-item first-service">
             <div class="icon"></div>
-            <h4>App Maintenance</h4>
-            <p>You are not allowed to redistribute this template ZIP file on any other website.</p>
+            <h4>Premium Laundry</h4>
+            <p>Tersedia layanan premium untuk item yang membutuhkan treatment mencuci yang khusus. Sehingga, anda akan mendapatkan hasil yang optimal.</p>
             <div class="text-button">
-              <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+              <!-- <a href="#">Read More <i class="fa fa-arrow-right"></i></a> -->
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="service-item second-service">
             <div class="icon"></div>
-            <h4>Rocket Speed of App</h4>
-            <p>You are allowed to use the Chain App Dev HTML template. Feel free to modify or edit this layout.</p>
+            <h4>Chemical Berkualitas</h4>
+            <p>Kami bangga menggunakan mesin standar industri dan memiliki formulasi chemical khusus untuk hasil yang terbaik dan ramah lingkungan.</p>
             <div class="text-button">
-              <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+              <!-- <a href="#">Read More <i class="fa fa-arrow-right"></i></a> -->
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="service-item third-service">
             <div class="icon"></div>
-            <h4>Multi Workflow Idea</h4>
-            <p>If this template is beneficial for your work, please support us <a rel="nofollow" href="https://paypal.me/templatemo" target="_blank">a little via PayPal</a>. Thank you.</p>
-            <div class="text-button">
-              <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+            <h4>Harga Murah dan Kualitas Terjamin</h4>
+            <p>Kami menggunakan mesin cuci dan pengering buat laundry dari Amerika sehingga layanan bisa cepat dan kualitas yang prima dan murah.</p><!-- <a rel="nofollow" href="https://paypal.me/templatemo" target="_blank">a little via PayPal</a>. Thank you.</p>
+            <div class="text-button"> -->
+              <!-- <a href="#">Read More <i class="fa fa-arrow-right"></i></a> -->
             </div>
           </div>
         </div>
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-4">
           <div class="service-item fourth-service">
             <div class="icon"></div>
-            <h4>24/7 Help &amp; Support</h4>
-            <p>Lorem ipsum dolor consectetur adipiscing elit sedder williamsburg photo booth quinoa and fashion axe.</p>
+            <h4>Cepat &amp; Tepat</h4>
+            <p>Kami memiliki sumber daya yang profesional dan standar operasional laundry yang baik, sehingga kami dapat bekerja dengan cepat dan tepat.</p>
             <div class="text-button">
-              <a href="#">Read More <i class="fa fa-arrow-right"></i></a>
+              <!-- <a href="#">Read More <i class="fa fa-arrow-right"></i></a> -->
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
@@ -261,47 +269,51 @@ https://templatemo.com/tm-570-chain-app-dev
       <div class="row">
         <div class="col-lg-6 align-self-center">
           <div class="section-heading">
-            <h4>About <em>What We Do</em> &amp; Who We Are</h4>
-            <img src="<?php echo base_url('img/heading-line-dec.png'); ?>" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
+            <h4>Tentang <em>Fresh, Fast and Clean </em></h4>
+            <img src="<?php echo base_url(
+                'img/Kapasitas-besar.jpg'
+            ); ?>" alt="">
+            <p>Fresh, Fast and Clean didirikan pada tanggal 20 Januari 2010 di Depok. Fresh, Fast and Clean adalah salah satu pelopor dalam industri laundry & dry cleaning di Indonesia. Kami mulai 12 tahun yang lalu dengan sebuah workshop kecil dan 1 outlet di Jakarta barat. Saat ini kami memiliki outlet yang tersebar di propinsi DKI Jakarta, Jawa Barat dan Banten, dan melayani ribuan pelanggan setia. Meskipun kapasitas dan layanan kami telah mengalami pertumbuhan yang luar biasa, kami tetap konsisten untuk tujuan utama kami sejak berdirinya, yang adalah untuk memberikan perawatan pakaian yang dapat diandalkan dan layanan pencucian dengan fokus pada kualitas.</p>
           </div>
           <div class="row">
             <div class="col-lg-6">
               <div class="box-item">
-                <h4><a href="#">Maintance Problems</a></h4>
-                <p>Lorem Ipsum Text</p>
+                <h4><a href="#">One Day Services</a></h4>
+                <p>Cucian anda menumpuk perlu di cuci dengan cepat, kami menyediakan jasa cuci lipat dan setrika dalam sehari.</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="box-item">
-                <h4><a href="#">24/7 Support &amp; Help</a></h4>
-                <p>Lorem Ipsum Text</p>
+                <h4><a href="#">24/7 Support &amp; Layanan</a></h4>
+                <p>Tim kami siap stand by 24 jam untuk melayani anda, dengan menerima Layanan panggilan antar jemput gratis.</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="box-item">
-                <h4><a href="#">Fixing Issues About</a></h4>
-                <p>Lorem Ipsum Text</p>
+                <h4><a href="#">Harga Murah & Kualitas Prima</a></h4>
+                <p>Menggunakan mesin cuci dan pengering dari USA yang kelas premium sehingga hasilnya nya maksimal dengan waktu pencucian yang lebih singkat sehingga bisa menghemat biaya.</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="box-item">
-                <h4><a href="#">Co. Development</a></h4>
-                <p>Lorem Ipsum Text</p>
+                <h4><a href="#">Jaminan Uang Kembali</a></h4>
+                <p>Kami memberikan jaminan uang kembali buat pelanggan yang tidak puas dengan pengerjaan kami atau bisa kami cuci ulang tanpa dikenakan biaya apapun.</p>
               </div>
             </div>
             <div class="col-lg-12">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor idunte ut labore et dolore adipiscing  magna.</p>
+              <p>10% Discount untuk 5 kg Pertama buat pelanggan baru.</p>
               <div class="gradient-button">
-                <a href="#">Start 14-Day Free Trial</a>
+                <a href="#newsletter">Hubungi Kami</a>
               </div>
-              <span>*No Credit Card Required</span>
+              <!-- <span>*No Credit Card Required</span> -->
             </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="right-image">
-            <img src="<?php echo base_url('img/about-right-dec.png'); ?>" alt="">
+            <img src="<?php echo base_url(
+                'img/about-right-dec.png'
+            ); ?>" alt="">
           </div>
         </div>
       </div>
@@ -313,8 +325,10 @@ https://templatemo.com/tm-570-chain-app-dev
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <div class="section-heading">
-            <h4>Check What <em>The Clients Say</em> About Our App Dev</h4>
-            <img src="<?php echo base_url('img/heading-line-dec.png'); ?>" alt="">
+            <h4>Apa kata Pelanggan tentang <em>Fresh, fast and clean?</em></h4>
+            <img src="<?php echo base_url(
+                'img/heading-line-dec.png'
+            ); ?>" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
           </div>
         </div>
@@ -328,7 +342,7 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>David Martino Co</h4>
+                            <h4>Isra</h4>
                             <span class="date">30 November 2021</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
@@ -349,11 +363,11 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Jake Harris Nyo</h4>
-                            <span class="date">29 November 2021</span>
+                            <h4>Prisma</h4>
+                            <span class="date">29 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
-                            <span class="category">Digital Business</span>
+                            <span class="category">Pengusaha</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 col-12">
                               <i class="fa fa-star"></i>
@@ -370,8 +384,8 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>May Catherina</h4>
-                            <span class="date">27 November 2021</span>
+                            <h4>Alvin</h4>
+                            <span class="date">27 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
                             <span class="category">Business &amp; Economics</span>
@@ -391,8 +405,8 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Random User</h4>
-                            <span class="date">24 November 2021</span>
+                            <h4>Arvan</h4>
+                            <span class="date">24 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
                             <span class="category">New App Ecosystem</span>
@@ -412,8 +426,29 @@ https://templatemo.com/tm-570-chain-app-dev
                       <div class="thumb">
                         <div class="row">
                           <div class="col-lg-4 col-sm-4 col-12">
-                            <h4>Mark Amber Do</h4>
-                            <span class="date">21 November 2021</span>
+                            <h4>Pendi</h4>
+                            <span class="date">21 November 2022</span>
+                          </div>
+                          <div class="col-lg-4 col-sm-4 d-none d-sm-block">
+                            <span class="category">Web Development</span>
+                          </div>
+                          <div class="col-lg-4 col-sm-4 col-12">
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <i class="fa fa-star"></i>
+                              <span class="rating">4.3</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="last-thumb">
+                      <div class="thumb">
+                        <div class="row">
+                          <div class="col-lg-4 col-sm-4 col-12">
+                            <h4>Dirga</h4>
+                            <span class="date">22 November 2022</span>
                           </div>
                           <div class="col-lg-4 col-sm-4 d-none d-sm-block">
                             <span class="category">Web Development</span>
@@ -439,12 +474,16 @@ https://templatemo.com/tm-570-chain-app-dev
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="client-content">
-                                <img src="<?php echo base_url('img/quote.png'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/quote.png'
+                                ); ?>" alt="">
                                 <p>“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
                                   lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
                               </div>
                               <div class="down-content">
-                                <img src="<?php echo base_url('img/client-image.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/client-image.jpg'
+                                ); ?>" alt="">
                                 <div class="right-content">
                                   <h4>David Martino</h4>
                                   <span>CEO of David Company</span>
@@ -461,12 +500,16 @@ https://templatemo.com/tm-570-chain-app-dev
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="client-content">
-                                <img src="<?php echo base_url('img/quote.png'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/quote.png'
+                                ); ?>" alt="">
                                 <p>“CTO, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
                                   lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
                               </div>
                               <div class="down-content">
-                                <img src="<?php echo base_url('img/client-image.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/client-image.jpg'
+                                ); ?>" alt="">
                                 <div class="right-content">
                                   <h4>Jake H. Nyo</h4>
                                   <span>CTO of Digital Company</span>
@@ -483,12 +526,16 @@ https://templatemo.com/tm-570-chain-app-dev
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="client-content">
-                                <img src="<?php echo base_url('img/quote.png'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/quote.png'
+                                ); ?>" alt="">
                                 <p>“May, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
                                   lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
                               </div>
                               <div class="down-content">
-                                <img src="<?php echo base_url('img/client-image.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/client-image.jpg'
+                                ); ?>" alt="">
                                 <div class="right-content">
                                   <h4>May C.</h4>
                                   <span>Founder of Catherina Co.</span>
@@ -505,12 +552,16 @@ https://templatemo.com/tm-570-chain-app-dev
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="client-content">
-                                <img src="<?php echo base_url('img/quote.png'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/quote.png'
+                                ); ?>" alt="">
                                 <p>“Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
                                   lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
                               </div>
                               <div class="down-content">
-                                <img src="<?php echo base_url('img/client-image.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/client-image.jpg'
+                                ); ?>" alt="">
                                 <div class="right-content">
                                   <h4>Random Staff</h4>
                                   <span>Manager, Digital Company</span>
@@ -527,12 +578,42 @@ https://templatemo.com/tm-570-chain-app-dev
                           <div class="row">
                             <div class="col-lg-12">
                               <div class="client-content">
-                                <img src="<?php echo base_url('img/quote.png'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/quote.png'
+                                ); ?>" alt="">
                                 <p>“Mark, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
                                   lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
                               </div>
                               <div class="down-content">
-                                <img src="<?php echo base_url('img/client-image.jpg'); ?>" alt="">
+                                <img src="<?php echo base_url(
+                                    'img/client-image.jpg'
+                                ); ?>" alt="">
+                                <div class="right-content">
+                                  <h4>Mark Am</h4>
+                                  <span>CTO, Amber Do Company</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div>
+                        <div class="thumb">
+                          <div class="row">
+                            <div class="col-lg-12">
+                              <div class="client-content">
+                                <img src="<?php echo base_url(
+                                    'img/quote.png'
+                                ); ?>" alt="">
+                                <p>“Mark, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
+                                  lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
+                              </div>
+                              <div class="down-content">
+                                <img src="<?php echo base_url(
+                                    'img/client-image.jpg'
+                                ); ?>" alt="">
                                 <div class="right-content">
                                   <h4>Mark Am</h4>
                                   <span>CTO, Amber Do Company</span>
@@ -558,68 +639,79 @@ https://templatemo.com/tm-570-chain-app-dev
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <div class="section-heading">
-            <h4>We Have The Best Pre-Order <em>Prices</em> You Can Get</h4>
-            <img src="<?php echo base_url('img/heading-line-dec.png'); ?>" alt="">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eismod tempor incididunt ut labore et dolore magna.</p>
+            <h4>Paket terbaik. Laundry sekarang di <em>Fresh, fast & clean</em></h4>
+            <img src="<?php echo base_url(
+                'img/heading-line-dec.png'
+            ); ?>" alt="">
+            <p>Sesuaikan dengan kebutuhan Anda.</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="pricing-item-regular">
-            <span class="price">$12</span>
-            <h4>Standard Plan App</h4>
+            <span class="price">Self Service</span>
+            <h4>Kami sediakan fasilitas</h4>
             <div class="icon">
-              <img src="<?php echo base_url('img/pricing-table-01.png'); ?>" alt="">
+              <img src="<?php echo base_url(
+                  'img/pricing-table-01.png'
+              ); ?>" alt="">
             </div>
             <ul>
-              <li>Lorem Ipsum Dolores</li>
-              <li>20 TB of Storage</li>
-              <li class="non-function">Life-time Support</li>
-              <li class="non-function">Premium Add-Ons</li>
-              <li class="non-function">Fastest Network</li>
-              <li class="non-function">More Options</li>
+              <li class="non-function">Kami jemput - antar</li>
+              <li class="non-function">Kami bantu kerjakan</li>
+              <li>Detergent</li>
+              <li>Softener</li>
+              <li>Perfume</li>
+              <li>Setrika</li>
+              <li>Packing</li>
             </ul>
             <div class="border-button">
-              <a href="#">Purchase This Plan Now</a>
+              <a href="#newsletter">Rp. 39.500/6 Kilogram</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="pricing-item-pro">
-            <span class="price">$25</span>
-            <h4>Business Plan App</h4>
+            <span class="price">Pick and Drop</span>
+            <h4>Kami jemput - Antarkan</h4>
             <div class="icon">
-              <img src="<?php echo base_url('img/pricing-table-01.png'); ?>" alt="">
+              <img src="<?php echo base_url(
+                  'img/pricing-table-01.png'
+              ); ?>" alt="">
             </div>
             <ul>
-              <li>Lorem Ipsum Dolores</li>
-              <li>50 TB of Storage</li>
-              <li>Life-time Support</li>
-              <li>Premium Add-Ons</li>
-              <li class="non-function">Fastest Network</li>
-              <li class="non-function">More Options</li>
+              <li>Kami jemput - antar</li>
+              <li>Kami bantu kerjakan</li>
+              <li>Detergent</li>
+              <li>Softener</li>
+              <li>Perfume</li>
+              <li>Setrika</li>
+              <li>Packing</li>
             </ul>
             <div class="border-button">
-              <a href="#">Purchase This Plan Now</a>
+              <a href="#newsletter">Rp. 69.500/6 Kilogram</a>
             </div>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="pricing-item-regular">
-            <span class="price">$66</span>
-            <h4>Premium Plan App</h4>
+            <span class="price">Drop off Service</span>
+            <h4>Kami Kerjakan - Packing</h4>
             <div class="icon">
-              <img src="<?php echo base_url('img/pricing-table-01.png'); ?>" alt="">
+              <img src="<?php echo base_url(
+                  'img/pricing-table-01.png'
+              ); ?>" alt="">
             </div>
             <ul>
-              <li>Lorem Ipsum Dolores</li>
-              <li>120 TB of Storage</li>
-              <li>Life-time Support</li>
-              <li>Premium Add-Ons</li>
-              <li>Fastest Network</li>
-              <li>More Options</li>
+              <li class="non-function">Kami jemput - antar</li>
+              <li>Kami bantu kerjakan</li>
+              <li>Detergent</li>
+              <li>Softener</li>
+              <li>Perfume</li>
+              <li>Setrika</li>
+              <li>Packing</li>
             </ul>
             <div class="border-button">
-              <a href="#">Purchase This Plan Now</a>
+              <a href="#newsletter">Rp. 49.500/6 Kilogram</a>
             </div>
           </div>
         </div>
@@ -632,53 +724,61 @@ https://templatemo.com/tm-570-chain-app-dev
       <div class="row">
         <div class="col-lg-8 offset-lg-2">
           <div class="section-heading">
-            <h4>Join our mailing list to receive the news &amp; latest trends</h4>
+            <h4>Ingin jemput cucian apa hari ini? Silahkan isi pesan disini ya…</h4>
           </div>
         </div>
-        <div class="col-lg-6 offset-lg-3">
+        <div class="col-lg-8 offset-lg-3">
           <form id="search" action="#" method="GET">
             <div class="row">
-              <div class="col-lg-6 col-sm-6">
+              <div class="col-lg-8 col-sm-8">
                 <fieldset>
-                  <input type="address" name="address" class="email" placeholder="Email Address..." autocomplete="on" required>
-                </fieldset>
+                  <input type="text" name="nama" class="nama" placeholder="Masukan nama..." autocomplete="on" required>
+                  <input type="address" name="address" class="alamat" placeholder="Masukan alamat..." autocomplete="on" required>
+                  <input type="number" name="number" class="nomor" placeholder="Masukan nomor WA..." autocomplete="on" 
+                  required>
+                  <input type="text" name="deskripsi" class="deskripsi" placeholder="Masukan pesan..." autocomplete="on" 
+                  required>
+                  <div class="col-lg-6 col-sm-6 mt-3">
+                  <fieldset>
+                    <button type="submit" class="main-button">Kirim <i class="fa fa-angle-right"></i></button>
+                  </fieldset>
+                </div>
               </div>
-              <div class="col-lg-6 col-sm-6">
-                <fieldset>
-                  <button type="submit" class="main-button">Subscribe Now <i class="fa fa-angle-right"></i></button>
-                </fieldset>
-              </div>
-            </div>
+                <!-- <div class="col-lg-6 col-sm-6">
+                  <fieldset>
+                    <button type="submit" class="main-button position-absolute">Kirim <i class="fa fa-angle-right"></i></button>
+                  </fieldset>
+                </div> -->
+             </div>
           </form>
-        </div>
+      </div>
       </div>
       <div class="row">
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="footer-widget">
-            <h4>Contact Us</h4>
-            <p>Rio de Janeiro - RJ, 22795-008, Brazil</p>
-            <p><a href="#">010-020-0340</a></p>
-            <p><a href="#">info@company.co</a></p>
+            <h4>Kontak kami</h4>
+            <p>Alamat: Jl. Raya Margonda Kec. Pancoran, <br>Sukmajaya No.116 Kota Depok, Jawa barat</p>
+            <p>021-1110-1011</p>
+            <p>info@freshfastandclean.com</p>
           </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-4">
           <div class="footer-widget">
-            <h4>About Us</h4>
+            <h4>Tautan Penting</h4>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#clients">Testimonials</a></li>
-              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#">Beranda</a></li>
+              <li><a href="#services">Layanan Kami</a></li>
+              <li><a href="#about">Tentang Kami</a></li>
             </ul>
             <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#clients">Testimonials</a></li>
-              <li><a href="#pricing">Pricing</a></li>
+              <li><a href="#clients">Testimoni</a></li>
+              <li><a href="#pricing">Harga</a></li>
+              <li><a href="#newsletter">Kontak kami</a></li>
+              <!-- <li><a href="#pricing">Pricing</a></li> -->
             </ul>
           </div>
         </div>
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-3">
           <div class="footer-widget">
             <h4>Useful Links</h4>
             <ul>
@@ -694,20 +794,20 @@ https://templatemo.com/tm-570-chain-app-dev
               <li><a href="#">Normal Apps</a></li>
             </ul>
           </div>
-        </div>
-        <div class="col-lg-3">
+        </div> -->
+        <div class="col-lg-4 mt-3">
           <div class="footer-widget">
-            <h4>About Our Company</h4>
-            <div class="logo">
-              <img src="<?php echo base_url('img/white-logo.png'); ?>" alt="">
-            </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <h4>Fresh, Fast & Clean</h4>
+            <!-- <div class="logo">
+              <img src="<?php echo base_url('img/a.png'); ?>" alt="">
+            </div> -->
+            <p>Penyedia layanan laundry premium untuk eksklusif laundry dan laundry kiloan. Kami memiliki sumber daya profesional dan mesin standar industri untuk hasil yang optimal.</p>
           </div>
         </div>
         <div class="col-lg-12">
           <div class="copyright-text">
-            <p>Copyright © 2022 Chain App Dev Company. All Rights Reserved. 
-          <br>Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a></p>
+            <p>Copyright © Fresh, Fast and clean. All Rights Reserved. 
+          <!-- <br>Design: <a href="https://templatemo.com/" target="_blank" title="css templates">TemplateMo</a> --></p>
           </div>
         </div>
       </div>
@@ -716,8 +816,12 @@ https://templatemo.com/tm-570-chain-app-dev
 
 
   <!-- Scripts -->
-  <script src="<?php echo base_url('vendorr/jquery/jquery.min.js'); ?>"></script>
-  <script src="<?php echo base_url('vendorr/bootstrap/js/bootstrap.bundle.min.js'); ?>"></script>
+  <script src="<?php echo base_url(
+      'vendorr/jquery/jquery.min.js'
+  ); ?>"></script>
+  <script src="<?php echo base_url(
+      'vendorr/bootstrap/js/bootstrap.bundle.min.js'
+  ); ?>"></script>
 
 
   <script src="<?php echo base_url('js/owl-carousel.js'); ?>"></script>
