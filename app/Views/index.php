@@ -578,7 +578,7 @@ https://templatemo.com/tm-570-chain-app-dev
                                 <img src="<?php echo base_url(
                                     'img/quote.png'
                                 ); ?>" alt="">
-                                <p>“Mark, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
+                                <p>“aaa, Lorem ipsum dolor sit amet, consectetur adpiscing elit, sed do eismod tempor idunte ut labore et dolore magna aliqua darwin kengan
                                   lorem ipsum dolor sit amet, consectetur picing elit massive big blasta.”</p>
                               </div>
                               <div class="down-content">
