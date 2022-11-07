@@ -9,7 +9,7 @@ class Email extends BaseConfig
     /**
      * @var string
      */
-    public $fromEmail = "12210086@bsi.ac.id";
+    public $fromEmail = "johnabbruzi1980@gmail.com";
 
     /**
      * @var string
@@ -47,28 +47,28 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost ='mail.smtp2go.com';
+    public $SMTPHost ='in-v3.mailjet.com';
 
     /**
      * SMTP Username
      *
      * @var string
      */
-    public $SMTPUser = 'isra.bsi.ac.id';
+    public $SMTPUser = 'e591d5bceded0cb07196a2294341b8e7';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass = '6LaMNCMCB2wyveHr';
+    public $SMTPPass = '502fddcbc5187bafdcbfc5d7fb3feac4';
 
     /**
      * SMTP Port
      *
      * @var int
      */
-    public $SMTPPort = 2525;
+    public $SMTPPort = 587;
 
     /**
      * SMTP Timeout (in seconds)
