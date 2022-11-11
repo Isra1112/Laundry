@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> <?=  $this->renderSection('title') ?>MS Laundry</title>
+    <title> <?= $this->renderSection('title') ?>MS Laundry</title>
 
     <!-- Custom fonts for this template -->
     <link href="<?php echo base_url('assets/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
@@ -23,8 +23,8 @@
 
     <link href="css/tooltip.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script> 
-        
+    <script>
+
     </script>
 </head>
 
@@ -197,11 +197,13 @@
         </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
         function confirmToDelete(el) {
             $("#delete-button").attr("href", el.dataset.href);
             $("#confirm-dialog").modal('show');
         }
+
+        
     </script>
 
 

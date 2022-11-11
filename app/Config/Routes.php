@@ -48,6 +48,15 @@ $routes->get('/home/about', 'Home::about');
 //     $routes->add('cek', 'Login::login');
 // });
 
+$routes->group('profile', function($routes){
+	$routes->get('', 'Profile::getProfile');
+	$routes->get('(:segment)/preview', 'Profile::preview/$1');
+    $routes->add('create', 'Profile::create');
+	$routes->add('(:segment)/edit', 'Profile::edit/$1');
+	$routes->post('(:segment)/update', 'Profile::update/$1');
+	$routes->get('(:segment)/delete', 'Profile::delete/$1');
+});
+
 $routes->group('customer', function($routes){
 	$routes->get('', 'Customer::index');
 	$routes->get('(:segment)/preview', 'Customer::preview/$1');
