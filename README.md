@@ -5,7 +5,7 @@
 
 ## How to Install ?
 
-`1. php spark migrate -all`
-`2. php spark db:seed DbSeeder`
-`3. php spark serve`
+- `1. php spark migrate -all`
+- `2. php spark db:seed DbSeeder`
+- `3. php spark serve`
 
