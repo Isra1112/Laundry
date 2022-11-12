@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(); ?>">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?php echo base_url(''); ?>/dashboard">
         <div class="sidebar-brand-icon">
             <i class="fab fa-cotton-bureau"></i>
         </div>
@@ -14,7 +14,7 @@
     <?php if (in_groups(['admin', 'staff'])) : ?>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item <?= $this->renderSection('isActiveDashboard') ?>">
-            <a class="nav-link" href="<?php echo base_url(); ?>">
+            <a class="nav-link" href="<?php echo base_url(); ?>/dashboard">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -22,7 +22,7 @@
 
     <?php if (in_groups('user')) : ?>
         <li class="nav-item <?= $this->renderSection('isActiveDashboard') ?>">
-            <a class="nav-link" href="<?php echo base_url(); ?>">
+            <a class="nav-link" href="<?php echo base_url(); ?>/dashboard">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard User</span>
             </a>
