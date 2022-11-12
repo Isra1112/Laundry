@@ -10,6 +10,6 @@ class Test extends BaseController
 {
     public function index()
     {
-        return view('index');
+        return logged_in() ? redirect('dashboard') : view('index');
     }
 }

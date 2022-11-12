@@ -99,6 +99,71 @@ active
 </div>
 <div class="card border-left-secondary shadow mb-4">
     <!-- Card Header - Accordion -->
+    <a href="#collapseCardExample2" class="d-block card-header py-3 " data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample2">
+        <h6 class="m-0 font-weight-bold text-gray-1000">Latest Transaction</h6>
+    </a>
+    <!-- Card Content - Collapse -->
+    <div class="collapse show" id="collapseCardExample2">
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered " id="dataTables1" width="100%" cellspacing="0">
+                    <thead style="background-color: #f4f2f2;">
+                        <tr class="text-dark">
+                            <th>#</th>
+                            <th>Invoice</th>
+                            <th>Name</th>
+                            <th>Package</th>
+                            <th>Total Price</th>
+                            <th>Date</th>
+                            <th>Paid</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <?php foreach ($transactions as $key => $transaction) : ?>
+                            <tr class="">
+                                <td><?= $key + 1 ?></td>
+                                <td><?= $transaction->invoice ?></td>
+                                <td><?= $transaction->name ?></td>
+                                <td><?= $transaction->package_selected ?></td>
+                                <td><?= "Rp. " . number_format($transaction->total_price, 0, '', ',') ?></td>
+                                <td><?= $transaction->created_at ?></td>
+                                <td class="<?= ($transaction->total_price <= $transaction->paid) ? '' : 'text-danger font-weight-bold'; ?>"><?= ($transaction->total_price <= $transaction->paid) ? "Rp. " . number_format($transaction->paid, 0, '', ',') : "Rp. " . number_format($transaction->paid, 0, '', ','); ?></td>
+                                <td>
+                                    <?php
+                                    switch ($transaction->status) {
+                                        case "ready":
+                                            echo '<div class="badge badge-dark text-wrap" style="width: 3.5rem;">
+                                            Ready
+                                            </div>';
+                                            break;
+                                        case "process":
+                                            echo '<div class="badge badge-warning text-wrap" style="width: 3.5rem;">
+                                            Process
+                                            </div>';
+                                            break;
+                                        case "done":
+                                            echo '<div class="badge badge-success text-wrap" style="width: 3.5rem;">
+                                            Done
+                                            </div>';
+                                            break;
+                                        default:
+                                            echo "unknow";
+                                    } ?>
+                                </td>
+                            </tr>
+                        <?php endforeach ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card border-left-secondary shadow mb-4">
+    <!-- Card Header - Accordion -->
     <a href="#collapseCardExample" class="d-block card-header py-3 " data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample">
         <h6 class="m-0 font-weight-bold text-gray-1000">Latest Transaction</h6>
     </a>
@@ -162,68 +227,14 @@ active
     </div>
 </div>
 
-<div class="card shadow border-left-secondary mb-4">
-    <!-- Card Header - Accordion -->
-    <a href="#collapseCardExample2" class="d-block card-header py-3" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="collapseCardExample2">
-        <h6 class="m-0 font-weight-bold text-gray-1000">Latest Transaction</h6>
-    </a>
-    <!-- Card Content - Collapse -->
-    <div class="collapse show" id="collapseCardExample2">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-bordered " id="dataTable" width="100%" cellspacing="0">
-                    <thead style="background-color: #f4f2f2;">
-                        <tr class="text-dark">
-                            <th>#</th>
-                            <th>Invoice</th>
-                            <th>Name</th>
-                            <th>Package</th>
-                            <th>Total Price</th>
-                            <th>Date</th>
-                            <th>Paid</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
 
-                    <tbody>
 
-                        <?php foreach ($transactions as $key => $transaction) : ?>
-                            <tr class="">
-                                <td><?= $key + 1 ?></td>
-                                <td><?= $transaction->invoice ?></td>
-                                <td><?= $transaction->name ?></td>
-                                <td><?= $transaction->package_selected ?></td>
-                                <td><?= "Rp. " . number_format($transaction->total_price, 0, '', ',') ?></td>
-                                <td><?= $transaction->created_at ?></td>
-                                <td class="<?= ($transaction->total_price <= $transaction->paid) ? '' : 'text-danger font-weight-bold'; ?>"><?= ($transaction->total_price <= $transaction->paid) ? "Rp. " . number_format($transaction->paid, 0, '', ',') : "Rp. " . number_format($transaction->paid, 0, '', ','); ?></td>
-                                <td>
-                                    <?php
-                                    switch ($transaction->status) {
-                                        case "ready":
-                                            echo '<div class="badge badge-dark text-wrap" style="width: 3.5rem;">
-                                            Ready
-                                            </div>';
-                                            break;
-                                        case "process":
-                                            echo '<div class="badge badge-warning text-wrap" style="width: 3.5rem;">
-                                            Process
-                                            </div>';
-                                            break;
-                                        case "done":
-                                            echo '<div class="badge badge-success text-wrap" style="width: 3.5rem;">
-                                            Done
-                                            </div>';
-                                            break;
-                                        default:
-                                            echo "unknow";
-                                    } ?>
-                                </td>
-                            </tr>
-                        <?php endforeach ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
+<script type="text/javascript">
+        
+
+        $(document).ready(function() {
+            $('#dataTables1').DataTable();
+        });
+        // window.$('#datatables').DataTable();
+    </script>
 <?= $this->endSection() ?>

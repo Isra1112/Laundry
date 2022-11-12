@@ -35,11 +35,11 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::dashboard');
+$routes->get('/dashboard', 'Home::dashboard');
 
 // $routes->add('/logout', 'Login::logout');
 // $routes->get('/dashboard', 'Home::index',['filter' => 'auth']);
-$routes->get('/lp', 'Test::index',['filter' => 'login']);
+$routes->get('/', 'Test::index');
 $routes->get('/home', 'Home::index');
 $routes->get('/home/about', 'Home::about');
 
@@ -47,6 +47,24 @@ $routes->get('/home/about', 'Home::about');
 //     $routes->get('/', 'Login::index');
 //     $routes->add('cek', 'Login::login');
 // });
+
+$routes->group('profile', function($routes){
+	$routes->get('', 'Profile::getProfile');
+	$routes->get('(:segment)/preview', 'Profile::preview/$1');
+    $routes->add('create', 'Profile::create');
+	$routes->add('(:segment)/edit', 'Profile::edit/$1');
+	$routes->post('(:segment)/update', 'Profile::update/$1');
+	$routes->get('(:segment)/delete', 'Profile::delete/$1');
+});
+
+$routes->group('address', function($routes){
+	$routes->get('', 'Address::getAddress');
+	$routes->get('(:segment)/preview', 'Address::preview/$1');
+    $routes->add('create', 'Address::create');
+	$routes->add('(:segment)/edit', 'Address::edit/$1');
+	$routes->post('(:segment)/update', 'Address::update/$1');
+	$routes->get('(:segment)/delete', 'Address::delete/$1');
+});
 
 $routes->group('customer', function($routes){
 	$routes->get('', 'Customer::index');
@@ -89,6 +107,8 @@ $routes->group('transaction', function($routes){
 	$routes->add('(:segment)/edit', 'transaksi::edit/$1');
 	$routes->get('(:segment)/delete', 'transaksi::delete/$1');
 });
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

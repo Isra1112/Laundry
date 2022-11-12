@@ -9,8 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> <?=  $this->renderSection('title') ?>MS Laundry</title>
+    <title> <?= $this->renderSection('title') ?>MS Laundry</title>
+    <!-- leaflet map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+     integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+     crossorigin=""/>
 
+    
     <!-- Custom fonts for this template -->
     <link href="<?php echo base_url('assets/fontawesome-free/css/all.min.css'); ?>" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -23,9 +28,9 @@
 
     <link href="css/tooltip.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script> 
-        
-    </script>
+    <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+     integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+     crossorigin=""></script>
 </head>
 
 <body id="page-top">
@@ -197,7 +202,7 @@
         </div>
     </div>
 
-    <script>
+    <script type="text/javascript">
         function confirmToDelete(el) {
             $("#delete-button").attr("href", el.dataset.href);
             $("#confirm-dialog").modal('show');
