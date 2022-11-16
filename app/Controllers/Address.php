@@ -19,18 +19,21 @@ class Address extends BaseController
         $builder->where('id = '.user()->address_id);
         $data['addresses'] = $builder->get()->getResult();
         return view('address/index',$data);
-        echo json_encode($data);
+        // echo json_encode($data);
     }
+
      public function update($id)
      {
         $addressModel = new AddressModel();
-
-        $session = session();
+        echo $this->request->getVar("longitude");
+        // $session = session();
 
         $data = [
             "name" => $this->request->getVar("name"),
             "address" => $this->request->getVar("address"),
-            "note" => $this->request->getVar("note")
+            "note" => $this->request->getVar("note"),
+            "lat" => $this->request->getVar("latitude"),
+            "lng" => $this->request->getVar("longtitude"),
         ];
         if (!$addressModel->update($id,$data)) {
             $data['id'] = $id;

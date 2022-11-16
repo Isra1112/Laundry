@@ -22,24 +22,19 @@ class Address extends Migration
             'address'       => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '255',
-                'null'           => false
+                
             ],
             'note'       => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '255',
-                'null'           => false
             ],
             'lat'       => [
                 'type' => 'FLOAT',
                 'constraint' => "10, 6",
-                'null' => false,
-                'default' => 0
             ],
             'lng'       => [
                 'type' => 'FLOAT',
                 'constraint' => '10, 6',
-                'null' => false,
-                'default' => 0
             ],
             'created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP',
             'updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP',

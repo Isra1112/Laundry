@@ -57,6 +57,15 @@ $routes->group('profile', function($routes){
 	$routes->get('(:segment)/delete', 'Profile::delete/$1');
 });
 
+$routes->group('outlet', function($routes){
+	$routes->get('', 'Outlet::getLocation');
+	$routes->get('(:segment)/preview', 'Outlet::preview/$1');
+    $routes->add('create', 'Outlet::create');
+	$routes->add('(:segment)/edit', 'Outlet::edit/$1');
+	$routes->post('(:segment)/update', 'Outlet::update/$1');
+	$routes->get('(:segment)/delete', 'Outlet::delete/$1');
+});
+
 $routes->group('address', function($routes){
 	$routes->get('', 'Address::getAddress');
 	$routes->get('(:segment)/preview', 'Address::preview/$1');
@@ -84,28 +93,28 @@ $routes->group('package', function($routes){
 });
 
 $routes->group('report', function($routes){
-	$routes->get('', 'outlet::index');
-	$routes->get('(:segment)/preview', 'outlet::preview/$1');
-    $routes->add('create', 'outlet::create');
-	$routes->add('(:segment)/edit', 'outlet::edit/$1');
-	$routes->get('(:segment)/delete', 'outlet::delete/$1');
+	$routes->get('', 'Outlet::index');
+	$routes->get('(:segment)/preview', 'Outlet::preview/$1');
+    $routes->add('create', 'Outlet::create');
+	$routes->add('(:segment)/edit', 'Outlet::edit/$1');
+	$routes->get('(:segment)/delete', 'Outlet::delete/$1');
 });
 
 $routes->group('user', function($routes){
-	$routes->get('', 'user::index');
-	$routes->get('(:segment)/preview', 'user::preview/$1');
-    $routes->add('create', 'user::create');
-	$routes->add('(:segment)/edit', 'user::edit/$1');
-	$routes->get('(:segment)/delete', 'user::delete/$1');
+	$routes->get('', 'User::index');
+	$routes->get('(:segment)/preview', 'User::preview/$1');
+    $routes->add('create', 'User::create');
+	$routes->add('(:segment)/edit', 'User::edit/$1');
+	$routes->get('(:segment)/delete', 'User::delete/$1');
 });
 
 $routes->group('transaction', function($routes){
-	$routes->get('', 'transaksi::index');
-	$routes->get('konfirmasi', 'transaksi::konfirmasi');
-	$routes->get('(:segment)/preview', 'transaksi::preview/$1');
-    $routes->add('create', 'transaksi::create');
-	$routes->add('(:segment)/edit', 'transaksi::edit/$1');
-	$routes->get('(:segment)/delete', 'transaksi::delete/$1');
+	$routes->get('', 'Transaction::index');
+	$routes->get('konfirmasi', 'Transaction::konfirmasi');
+	$routes->get('(:segment)/preview', 'Transaction::preview/$1');
+    $routes->add('create', 'Transaction::create');
+	$routes->add('(:segment)/edit', 'Transaction::edit/$1');
+	$routes->get('(:segment)/delete', 'Transaction::delete/$1');
 });
 
 

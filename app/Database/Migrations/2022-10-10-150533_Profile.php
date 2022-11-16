@@ -21,19 +21,16 @@ class Profile extends Migration
             ],
             'birthdate'       => [
                 'type' => 'date',
-                'null' => true,
                 'default' => null
             ],
             'gender'       => [
                 'type' => 'enum',
                 'constraint' => "'f','m'",
-                'null' => true,
                 'default' => null
             ],
             'telephone'       => [
                 'type' => 'int',
                 'constraint' => '12',
-                'null' => true,
                 'default' => null
             ],
             'created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP',
