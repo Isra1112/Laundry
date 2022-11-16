@@ -3,11 +3,13 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\AddressModel;
 use App\Models\TransactionModel;
 use App\Models\MemberModel;
+use App\Models\PackageModel;
+use App\Models\ProfileModel;
 
-
-class Transaksi extends BaseController
+class Transaction extends BaseController
 {
     public function index()
     {
@@ -33,8 +35,24 @@ class Transaksi extends BaseController
 
     public function create()
     {
+        $profile = new ProfileModel(); 
+        $profile->select('*');
+        $profile->where('id = '.user()->profile_id);
+        $profile->where('deleted_at is NULL');
+        $data['profile'] = $profile->get()->getResult();
 
-        return view('transaction/create');
+        $profile = new AddressModel(); 
+        $profile->select('*');
+        $profile->where('id = '.user()->address_id);
+        $profile->where('deleted_at is NULL');
+        $data['address'] = $profile->get()->getResult();
+
+        $profile = new PackageModel(); 
+        $profile->select('*');
+        $profile->where('deleted_at is NULL');
+        $data['packages'] = $profile->get()->getResult();
+
+        return view('transaction/create',$data);
     }
 
     public function delete($id)

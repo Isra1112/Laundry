@@ -39,4 +39,12 @@ class AddressModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function CreateAddress()
+    {
+        $this->db->table('address')->insert([
+            'name' => null,
+        ]);
+        return $this->db->insertId();
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace Myth\Auth\Models;
 
+use App\Models\AddressModel;
+use App\Models\ProfileModel;
 use CodeIgniter\Model;
 use Faker\Generator;
 use Myth\Auth\Authorization\GroupModel;
@@ -18,7 +20,7 @@ class UserModel extends Model
     protected $useSoftDeletes = true;
     protected $allowedFields  = [
         'email', 'username', 'password_hash', 'reset_hash', 'reset_at', 'reset_expires', 'activate_hash',
-        'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at',
+        'status', 'status_message', 'active', 'force_pass_reset', 'permissions', 'deleted_at','profile_id','address_id'
     ];
     protected $useTimestamps   = true;
     protected $validationRules = [
@@ -101,7 +103,15 @@ class UserModel extends Model
      * @return mixed
      */
     protected function addToGroup($data)
-    {
+    {   
+        $address = new AddressModel();
+        $profile = new ProfileModel();
+        $this->db->table('users')->update([
+            'profile_id'      => $profile->CreateProfile(),
+            'address_id'      => $address->CreateAddress(),
+        ],[
+            'id' => $data['id'],
+        ]);
         if (is_numeric($this->assignGroup)) {
             $groupModel = model(GroupModel::class);
             $groupModel->addUserToGroup($data['id'], $this->assignGroup);

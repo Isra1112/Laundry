@@ -39,4 +39,12 @@ class ProfileModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function CreateProfile()
+    {
+        $this->db->table('profiles')->insert([
+            'fullname' => null,
+        ]);
+        return $this->db->insertId();
+    }
 }

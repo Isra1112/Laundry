@@ -94,11 +94,11 @@
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Transaction</span>
             </a>
-            <div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">List:</h6>
-                    <a class="collapse-item active" href="buttons.html">New Transaction</a>
-                    <a class="collapse-item active" href="buttons.html">Tracking</a>
+                    <a class="collapse-item " href="<?php echo base_url('transaction/create') ?>">New Transaction</a>
+                    <a class="collapse-item " href="buttons.html">Tracking</a>
                     <a class="collapse-item" href="cards.html">History</a>
                 </div>
             </div>
@@ -143,7 +143,7 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item <?= $this->renderSection('isActiveTransaksi') ?>">
-        <a class="nav-link collapsed" href="<?php echo base_url(); ?>/transaction">
+        <a class="nav-link collapsed" href="<?php echo base_url(); ?>/outlet">
             <i class="fas fa-exchange-alt"></i>
             <span>Outlet</span>
         </a>
