@@ -1,7 +1,9 @@
 # Laundry Management System
 
 [demo](http://isra-km.my.id/).
-
+username : admin
+username : user
+password : !p4ssw0rd
 
 ## How to Install ?
 
