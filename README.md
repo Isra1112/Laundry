@@ -1,6 +1,6 @@
 # Laundry Management System
 
-[demo](http://isra-km.my.id/).
+[demo](http://isra-km.my.id/).<br />
 username : admin <br />
 username : user <br />
 password : !p4ssw0rd<br />
