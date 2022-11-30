@@ -47,26 +47,41 @@ active
                                 <td><?= "Rp. " . number_format($transaction->total_price, 0, '', ',') ?></td>
                                 <td class="<?= ($transaction->total_price <= $transaction->paid) ? '' : 'text-danger font-weight-bold' ; ?>" ><?= ($transaction->total_price <= $transaction->paid) ? "Rp. " . number_format($transaction->paid, 0, '', ',') : "Rp. " . number_format($transaction->paid, 0, '', ','); ?></td>
                                 <td>
-                                    <?php 
-                                    switch ($transaction->status) {
-                                        case "ready":
-                                            echo '<div class="badge badge-dark text-wrap" style="width: 3.5rem;">
+                                <?php
+                                switch ($transaction->status) {
+                                    case "ready":
+                                        echo '<div class="badge badge-dark text-wrap" style="width: 3.5rem;">
                                             Ready
                                             </div>';
-                                            break;
-                                        case "process":
-                                            echo '<div class="badge badge-warning text-wrap" style="width: 3.5rem;">
+                                        break;
+                                    case "process":
+                                        echo '<div class="badge badge-warning text-wrap" style="width: 3.5rem;">
                                             Process
                                             </div>';
-                                            break;
-                                        case "done":
-                                            echo '<div class="badge badge-success text-wrap" style="width: 3.5rem;">
+                                        break;
+                                    case "done":
+                                        echo '<div class="badge badge-success text-wrap" style="width: 3.5rem;">
                                             Done
                                             </div>';
-                                            break;
-                                        default:
-                                          echo "unknow";
-                                      } ?>
+                                        break;
+                                    case "picking up":
+                                        echo '<div class="badge badge-primary text-wrap" style="width: 3.5rem;">
+                                        Picking Up
+                                                </div>';
+                                        break;
+                                    case "on delivery":
+                                        echo '<div class="badge badge-info text-wrap" style="width: 3.5rem;">
+                                                    On Delivery
+                                                    </div>';
+                                        break;
+                                    case "new":
+                                        echo '<div class="badge badge-danger text-wrap" style="width: 3.5rem;">
+                                                        New
+                                                        </div>';
+                                        break;
+                                    default:
+                                        echo $transaction->status;
+                                } ?>
                                 </td>
                                 <td><?= $transaction->created_at ?></td>
 

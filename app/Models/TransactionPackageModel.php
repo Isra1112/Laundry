@@ -14,7 +14,7 @@ class TransactionPackageModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['transaction_id','package_id','quantity','total_price','discount','price_after_disc'];
 
     // Dates
     protected $useTimestamps = false;

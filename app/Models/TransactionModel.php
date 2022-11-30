@@ -14,7 +14,7 @@ class TransactionModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['customer_id','user_id','invoice','base_price','total_discount','total_price','paid','status'];
 
     // Dates
     protected $useTimestamps = false;

@@ -59,7 +59,7 @@
 
     <?php if (in_groups('user')) : ?>
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item <?= $this->renderSection('isActiveUser') ?>">
+        <li class="nav-item <?= $this->renderSection('isActiveProfile') ?>">
             <a class="nav-link" href="<?php echo base_url(); ?>/profile">
                 <i class="fas fa-user-tie"></i>
                 <span>Profile</span>
@@ -69,7 +69,7 @@
 
     <?php if (in_groups('user')) : ?>
         <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item <?= $this->renderSection('isActiveUser') ?>">
+        <li class="nav-item <?= $this->renderSection('isActiveAddress') ?>">
             <a class="nav-link" href="<?php echo base_url(); ?>/address">
                 <i class="fas fa-user-tie"></i>
                 <span>Address</span>
@@ -89,17 +89,17 @@
     </div>
 
     <?php if (in_groups('user')) : ?>
-        <li class="nav-item">
-            <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <li class="nav-item <?= $this->renderSection('isActiveCollapseTransaction') ?>">
+            <a class="nav-link " href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw fa-cog"></i>
                 <span>Transaction</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">List:</h6>
-                    <a class="collapse-item " href="<?php echo base_url('transaction/create') ?>">New Transaction</a>
-                    <a class="collapse-item " href="buttons.html">Tracking</a>
-                    <a class="collapse-item" href="cards.html">History</a>
+                    <a class="collapse-item <?= $this->renderSection('isActiveNewTransaction') ?>" href="<?php echo base_url('transaction/create') ?>">New Transaction</a>
+                    <a class="collapse-item <?= $this->renderSection('isActiveTracking') ?>" href="buttons.html">Tracking</a>
+                    <a class="collapse-item <?= $this->renderSection('isActiveHistory') ?>" href="<?php echo base_url('transaction/history') ?>">History</a>
                 </div>
             </div>
         </li>
@@ -127,7 +127,7 @@
 
     <?php if (in_groups(['admin', 'staff'])) : ?>
     <!-- Nav Item - Tables -->
-    <li class="nav-item <?= $this->renderSection('isActiveOutlet') ?>">
+    <li class="nav-item <?= $this->renderSection('isActiveReport') ?>">
         <a class="nav-link" href="<?php echo base_url(); ?>/report">
             <i class="fas fa-file-alt"></i>
             <span>Report</span></a>
@@ -142,7 +142,7 @@
     </div>
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item <?= $this->renderSection('isActiveTransaksi') ?>">
+    <li class="nav-item <?= $this->renderSection('isActiveOutlet') ?>">
         <a class="nav-link collapsed" href="<?php echo base_url(); ?>/outlet">
             <i class="fas fa-exchange-alt"></i>
             <span>Outlet</span>

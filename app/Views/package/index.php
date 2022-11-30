@@ -11,7 +11,7 @@ active
     <div class="card shadow mb-4">
         <div class="card-header  py-6">
             <!-- <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6> -->
-            <a class="btn btn-primary btn-icon-split" href="http://localhost:8080/package/create" role="button">
+            <a class="btn btn-primary btn-icon-split" href="<?php base_url('package/create') ?>" role="button">
                 <span class="icon text-white-50">
                 <i class="fas fa-plus"></i>
                 </span>

@@ -35,18 +35,12 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/dashboard', 'Home::dashboard');
 
-// $routes->add('/logout', 'Login::logout');
-// $routes->get('/dashboard', 'Home::index',['filter' => 'auth']);
 $routes->get('/', 'Test::index');
+$routes->get('/dashboard', 'Home::dashboard');
 $routes->get('/home', 'Home::index');
 $routes->get('/home/about', 'Home::about');
 
-// $routes->group('login', function ($routes) {
-//     $routes->get('/', 'Login::index');
-//     $routes->add('cek', 'Login::login');
-// });
 
 $routes->group('profile', function($routes){
 	$routes->get('', 'Profile::getProfile');
@@ -58,7 +52,8 @@ $routes->group('profile', function($routes){
 });
 
 $routes->group('outlet', function($routes){
-	$routes->get('', 'Outlet::getLocation');
+	$routes->get('', 'Outlet::index');
+	$routes->get('user', 'Outlet::getLocation');
 	$routes->get('(:segment)/preview', 'Outlet::preview/$1');
     $routes->add('create', 'Outlet::create');
 	$routes->add('(:segment)/edit', 'Outlet::edit/$1');
@@ -93,7 +88,8 @@ $routes->group('package', function($routes){
 });
 
 $routes->group('report', function($routes){
-	$routes->get('', 'Outlet::index');
+	$routes->get('', 'Report::index');
+	$routes->add('print', 'Report::printReport');
 	$routes->get('(:segment)/preview', 'Outlet::preview/$1');
     $routes->add('create', 'Outlet::create');
 	$routes->add('(:segment)/edit', 'Outlet::edit/$1');
@@ -112,9 +108,12 @@ $routes->group('transaction', function($routes){
 	$routes->get('', 'Transaction::index');
 	$routes->get('konfirmasi', 'Transaction::konfirmasi');
 	$routes->get('(:segment)/preview', 'Transaction::preview/$1');
+	$routes->get('(:segment)/print', 'Transaction::print/$1');
     $routes->add('create', 'Transaction::create');
+	$routes->post('store', 'Transaction::store');
 	$routes->add('(:segment)/edit', 'Transaction::edit/$1');
 	$routes->get('(:segment)/delete', 'Transaction::delete/$1');
+	$routes->get('history', 'Transaction::history');
 });
 
 

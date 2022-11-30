@@ -37,6 +37,11 @@ class Transactions extends Migration
                 // 'null' => FALSE,
                 'default' => 0.00
             ],
+            'delivery'       => [
+                'type' => 'DECIMAL',
+                'constraint' => '10,2',
+                // 'null' => FALSE,
+            ],
             'paid'       => [
                 'type' => 'DECIMAL',
                 'constraint' => '10,2',
@@ -50,14 +55,9 @@ class Transactions extends Migration
                 'null'           => TRUE
 
             ],
-            'customer_id'       => [
-                'type'           => 'int',
-                'constraint'     => '5',
-                'unsigned'       => TRUE,
-            ],
             'status'       => [
                 'type'           => 'ENUM',
-                'constraint'     =>  "'process','ready','done'",
+                'constraint'     =>  "'process','ready','done','picking up','on delivery','new'",
                 'default'        => 'process',
                 'null'           => FALSE
             ],
@@ -67,7 +67,6 @@ class Transactions extends Migration
         ]);
         $this->forge->addKey('id', TRUE);
         $this->forge->addForeignKey('user_id', 'users', 'id');
-        $this->forge->addForeignKey('customer_id', 'customers', 'id');
 
         // Membuat tabel news
         $this->forge->createTable('transactions');
