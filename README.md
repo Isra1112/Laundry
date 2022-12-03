@@ -5,7 +5,7 @@ username : admin <br />
 username : user <br />
 password : !p4ssw0rd<br />
 
-## How to Install ?
+## How to Run ?
 
 - `1. php spark migrate -all`
 - `2. php spark db:seed DbSeeder`
