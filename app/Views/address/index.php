@@ -1,5 +1,5 @@
 <?= $this->extend('layout/layout') ?>
-<?= $this->section('isActivePackage') ?>
+<?= $this->section('isActiveAddress') ?>
 active
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
@@ -52,26 +52,26 @@ if (!empty($errors)) : ?>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Address Label</label>
-                    <input disabled type="text" class="form-control" id="name" name="name" placeholder="Label" value="<?= $addresses[0]->name ?>">
+                    <input required disabled type="text" class="form-control" id="name" name="name" placeholder="Label" value="<?= $addresses[0]->name ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="note">Note</label>
-                    <input disabled type="text" class="form-control" id="note" name="note" placeholder="Note" value="<?= $addresses[0]->note ?>">
+                    <input required disabled type="text" class="form-control" id="note" name="note" placeholder="Note" value="<?= $addresses[0]->note ?>">
                 </div>
             </div>
             <div class="form-row">
 
                 <div class="form-group col-md-6">
                     <label for="address">Address</label>
-                    <textarea disabled class="form-control" id="address" name="address" placeholder="Full Address"><?php echo $addresses[0]->address ?></textarea>
+                    <textarea required disabled class="form-control" id="address" name="address" placeholder="Full Address"><?php echo $addresses[0]->address ?></textarea>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="latitude">Latitude</label>
-                    <input disabled type="text" class="form-control" id="latitude" name="latitude" placeholder="8217" value="<?= $addresses[0]->lat ?>">
+                    <input required disabled type="text" class="form-control" id="latitude" name="latitude" placeholder="8217" value="<?= $addresses[0]->lat ?>">
                 </div>
                 <div class="form-group col-md-3">
                     <label for="longtitude">Longitude</label>
-                    <input disabled type="text" class="form-control" id="longtitude" name="longtitude" placeholder="8217" value="<?= $addresses[0]->lng ?>">
+                    <input required disabled type="text" class="form-control" id="longtitude" name="longtitude" placeholder="8217" value="<?= $addresses[0]->lng ?>">
                 </div>
             </div>
             <div class="form-row">
@@ -113,33 +113,6 @@ if (!empty($errors)) : ?>
         document.getElementById('latitude').value = marker.getLatLng().lat;
         document.getElementById('longtitude').value = marker.getLatLng().lng;
     });
-
-    // L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
-    //     attribution: '© OpenStreetMap contributors',
-    //     maxZoom: 17,
-    //     minZoom: 15
-    // }).addTo(map);
-
-    // // bike lanes
-    // L.tileLayer('http://tiles.mapc.org/trailmap-onroad/{z}/{x}/{y}.png', {
-    //     maxZoom: 17,
-    //     minZoom: 9
-    // }).addTo(map);
-
-    // L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-    //     attribution: '© OpenStreetMap contributors',
-    //     maxZoom: 17,
-    //     minZoom: 9
-    // }).addTo(map);
-
-
-    // needed token
-    //ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
-    // ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw';
-    //     L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN, {
-    //         attribution: 'Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    //         id: 'mapbox.streets'
-    //     }).addTo(map); 
 
     let edit = (el) => {
         el.disabled = true

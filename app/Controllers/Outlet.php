@@ -26,17 +26,38 @@ class Outlet extends BaseController
         $lng1 = $data['outlet'][0]->lng;
         $lat2 = $data['addresses'][0]->lat;
         $lng2 = $data['addresses'][0]->lng;
-        $data['distance'] = round($outlet->distance($lat1,$lng1,$lat2,$lng2,"k"),2);
+        $data['distance'] = round($outlet->distance($lat1, $lng1, $lat2, $lng2, "k"), 2);
         return view('outlet/user', $data);
         // echo json_encode($data);
     }
 
-    
+
 
     public function index()
     {
+        if (in_groups('user')) {
+            $builder = new AddressModel();
+            $builder->select('*');
+            $builder->where('id = ' . user()->address_id);
+            $data['addresses'] = $builder->get()->getResult();
 
-        return view('report/index');
+            $outlet = new OutletModel();
+            $outlet->select('*');
+            $outlet->where('id = 1');
+            $data['outlet'] = $outlet->get()->getResult();
+            $lat1 = $data['outlet'][0]->lat;
+            $lng1 = $data['outlet'][0]->lng;
+            $lat2 = $data['addresses'][0]->lat;
+            $lng2 = $data['addresses'][0]->lng;
+            $data['distance'] = round($outlet->distance($lat1, $lng1, $lat2, $lng2, "k"), 2);
+            return view('outlet/user', $data);
+        } else {
+            $outlet = new OutletModel();
+            $outlet->select('*');
+            $outlet->where('id = 1');
+            $data['outlet'] = $outlet->get()->getResult();
+            return view('outlet/index', $data);
+        }
     }
 
     public function create()

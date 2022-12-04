@@ -9,13 +9,14 @@ class DbSeeder extends Seeder
     public function run()
     {
         // $this->call('Roles');
-        $this->call('Customers');
-        // $this->call('Users');
+        // $this->call('Customers');
         $this->call('Packages');
+        $this->call('Users');
+        $this->call('Outlet');
         
-        $this->call('Transactions');
-        $this->call('TransactionsPackages');
-        $this->call('TransactionSeedPrice');
+        // $this->call('Transactions');
+        // $this->call('TransactionsPackages');
+        // $this->call('TransactionSeedPrice');
         
     }
 }

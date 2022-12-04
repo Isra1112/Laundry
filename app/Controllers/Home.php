@@ -43,7 +43,7 @@ class Home extends BaseController
 
         $statusDone = $db;
         $statusDone->select('Count(*) as count');
-        $statusDone->where('transactions.paid = transactions.total_price');
+        // $statusDone->where('transactions.paid = transactions.total_price');
         $statusDone->where('transactions.deleted_at is NULL');
         $statusDone->orderBy('transactions.created_at','DESC');
         $data['count_paid'] = $statusDone->get()->getResult()[0]->count;
@@ -58,13 +58,14 @@ class Home extends BaseController
         $data['unpaid'] = $upaid->get()->getResult()[0]->count;
 
         $transactions = $db;
-        $transactions->select('transactions.*,c.name,c.telephone,c.address,count(p.id) as package_selected');
+        $transactions->select('transactions.*,pro.fullname as name,pro.telephone,a.address,count(p.id) as package_selected');
         $transactions->join('transactions_packages as tp', 'transactions.id = tp.transaction_id','inner');
         $transactions->join('packages as p', 'p.id = tp.package_id','inner');
-        $transactions->join('customers as c', 'c.id = transactions.customer_id','inner');
-        // $transactions->join('users as u', 'u.id = transactions.user_id','inner');
+        $transactions->join('users as u', 'u.id = transactions.user_id','inner');
+        $transactions->join('address as a', 'a.id = u.address_id','inner');
+        $transactions->join('profiles as pro', 'pro.id = u.profile_id','inner');
         // $transactions->join('roles as r', 'r.id = u.role_id','inner');
-        $transactions->where('transactions.paid != transactions.total_price');
+        // $transactions->where('transactions.paid != transactions.total_price');
         $transactions->where('transactions.deleted_at is NULL');
         $transactions->orderBy('transactions.created_at','DESC');
         $transactions->groupBy('transactions.id');

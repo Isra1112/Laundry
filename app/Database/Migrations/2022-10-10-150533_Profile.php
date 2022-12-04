@@ -18,6 +18,7 @@ class Profile extends Migration
             'fullname'       => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '255',
+                'default' => null
             ],
             'birthdate'       => [
                 'type' => 'date',

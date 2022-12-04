@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class TransactionPackageModel extends Model
+class TrackingModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'transactions_packages';
+    protected $table            = 'trackings';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['transaction_id','package_id','quantity','total_price','discount','price_after_disc'];
+    protected $allowedFields    = [];
 
     // Dates
     protected $useTimestamps = false;

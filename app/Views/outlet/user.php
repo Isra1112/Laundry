@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" />
 <link rel="stylesheet" href="../dist/leaflet-routing-machine.css" />
 <?= $this->endSection() ?> -->
-<?= $this->section('isActivePackage') ?>
+<?= $this->section('isActiveOutlet') ?>
 active
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
@@ -11,7 +11,7 @@ active
 
 
 <!-- Page Heading -->
-<h1 class="h3 mb-3 text-gray-800">Outlet</h1>
+<!-- <h1 class="h3 mb-3 text-gray-800">Outlet</h1> -->
 
 <!-- DataTales Example -->
 
@@ -25,15 +25,13 @@ active
 
         <!-- <button type="button" class="btn btn-info">Tambah</button> -->
     </div>
-    <div class="card-body border-left-primary">
+    <div class="card-body ">
         <div class="mx-12" id="map" style="height: 40rem; margin: 2.5% 10% 1%"></div>
         <div class="text-center">
             <p>Outlet Address :</p>
             <p><?php echo $outlet[0]->address ?></p>
             <p>Telephone : <?php echo $outlet[0]->telephone ?> Email : <?php echo $outlet[0]->email ?></p>
         </div>
-        <hr>
-        <button type="button" id="canceledit" class="btn btn-dark " onclick="cancel(this)">Cancel Edit</button>
     </div>
 </div>
 
