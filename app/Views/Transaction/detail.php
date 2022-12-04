@@ -97,7 +97,7 @@ active
                             <td><?= $key + 1 ?></td>
                             <td><?= $package->name ?></td>
                             <td><?= "Rp. " . number_format($package->pack_price, 0, '', ',') ?></td>
-                            <td><?= "Rp. " . number_format($package->quantity, 0, '', ',') ?></td>
+                            <td><?= $package->quantity?></td>
                             <td><?= "Rp. " . number_format($package->total_price, 0, '', ',') ?></td>
 
 
@@ -123,13 +123,13 @@ active
 
                 <tbody>
 
-                    <?php foreach ($packages as $key => $package) : ?>
+                    <?php foreach ($trackings as $key => $tracking) : ?>
                         <tr class="">
                             <td><?= $key + 1 ?></td>
-                            <td><?= $package->name ?></td>
-                            <td><?= "Rp. " . number_format($package->pack_price, 0, '', ',') ?></td>
-                            <td><?= "Rp. " . number_format($package->quantity, 0, '', ',') ?></td>
-                            <td><?= "Rp. " . number_format($package->total_price, 0, '', ',') ?></td>
+                            <td><?= $tracking->fullname ?></td>
+                            <td><?= $tracking->description ?></td>
+                            <td><?= $tracking->status_before ?></td>
+                            <td><?= $tracking->status_after ?></td>
 
 
                         </tr>

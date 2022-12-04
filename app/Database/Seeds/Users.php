@@ -168,7 +168,7 @@ class Users extends Seeder
 
         $transaction_data = [
             [
-                'invoice' => 'DRY' . 4 . random_int(1000, 9999),
+                'invoice' => 'DRY0000' . 4 . random_int(1000, 9999),
                 'base_price' => 31000,
                 'total_discount' => 0,
                 'total_price' => 41000,

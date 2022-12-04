@@ -9,6 +9,7 @@ use App\Models\MemberModel;
 use App\Models\OutletModel;
 use App\Models\PackageModel;
 use App\Models\ProfileModel;
+use App\Models\TrackingModel;
 use App\Models\TransactionPackageModel;
 
 use function PHPUnit\Framework\isNull;
@@ -16,17 +17,33 @@ use function PHPUnit\Framework\isNull;
 class Transaction extends BaseController
 {
     public function index()
-    {$db = new TransactionModel();
+    {
+        $db = new TransactionModel();
         $builder = $db;
         // $builder->select('transactions.*, tp.*, p.name as package_name, c.name as customer_name, c.telephone as customer_telp, c.address as customer_address,u.name as user_name,r.name as role_name');
-        $builder->select('transactions.*,count(p.id) as package_selected');
-        $builder->join('transactions_packages as tp', 'transactions.id = tp.transaction_id', 'inner');
-        $builder->join('packages as p', 'p.id = tp.package_id', 'inner');
-        $builder->join('users as u', 'u.id = transactions.user_id', 'inner');
+        $builder->select('transactions.*,pro.fullname as name,pro.telephone,a.address,count(p.id) as package_selected');
+        $builder->join('transactions_packages as tp', 'transactions.id = tp.transaction_id','inner');
+        $builder->join('packages as p', 'p.id = tp.package_id','inner');
+        $builder->join('users as u', 'u.id = transactions.user_id','inner');
+        $builder->join('address as a', 'a.id = u.address_id','inner');
+        $builder->join('profiles as pro', 'pro.id = u.profile_id','inner');
         $builder->where('transactions.deleted_at is NULL');
-        $builder->orderBy('transactions.created_at', 'DESC');
+        $builder->orderBy('transactions.created_at','DESC');
         $builder->groupBy('transactions.id');
         $data['transactions'] = $builder->get()->getResult();
+
+        $builder2 = $db;
+        $builder2->select('transactions.*,pro.fullname as name,pro.telephone,a.address,count(p.id) as package_selected');
+        $builder2->join('transactions_packages as tp', 'transactions.id = tp.transaction_id','inner');
+        $builder2->join('packages as p', 'p.id = tp.package_id','inner');
+        $builder2->join('users as u', 'u.id = transactions.user_id','inner');
+        $builder2->join('address as a', 'a.id = u.address_id','inner');
+        $builder2->join('profiles as pro', 'pro.id = u.profile_id','inner');
+        $builder2->where('transactions.deleted_at is NULL');
+        $builder2->where('transactions.delivery IS NOT NULL and transactions.status = "ready"');
+        $builder2->orderBy('transactions.created_at','DESC');
+        $builder2->groupBy('transactions.id');
+        $data['toDelivery'] = $builder2->get()->getResult();
         // echo json_encode($data);
         return view('transaction/index', $data);
         // echo "<pre>";
@@ -119,6 +136,8 @@ class Transaction extends BaseController
         $builder->orderBy('transactions.created_at', 'DESC');
         $builder->groupBy('transactions.id');
         $data['transactions'] = $builder->get()->getResult();
+
+        
         // echo json_encode($data);
         return view('transaction/history', $data);
     }
@@ -141,6 +160,15 @@ class Transaction extends BaseController
         $builder->join('packages as p', 'p.id = transactions_packages.package_id', 'inner');
         $builder->where('transactions_packages.transaction_id = ' .$id);
         $data['packages'] = $builder->get()->getResult();
+
+        $tracking = new TrackingModel();
+        $builder = $tracking;
+        $builder->select('trackings.*,p.fullname');
+        $builder->join('transactions as t', 't.id = trackings.transaction_id', 'inner');
+        $builder->join('users as u', 'u.id = trackings.staff_id', 'inner');
+        $builder->join('profiles as p', 'p.id = u.profile_id', 'inner');
+        $tracking->where('trackings.transaction_id = ' .$id);
+        $data['trackings'] = $tracking->get()->getResult();
 
         // echo json_encode($data);
         return view('transaction/detail', $data);
