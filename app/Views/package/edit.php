@@ -1,5 +1,5 @@
 <?= $this->extend('layout/layout') ?>
-<?= $this->section('isActivePacakage') ?>
+<?= $this->section('isActivePackage') ?>
 active
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
@@ -39,7 +39,6 @@ active
         <div class="card-header py-3 border-left-primary">
             <div class="row float">
                     <h6 class="font-weight-bold text-dark col-md">Detail Package : </h6>
-                    <button type="button" id="edit" class="btn btn-primary btn-sm mr-1" onclick="edit(this)">Print</button>
                     <button type="button" id="edit" class="btn btn-dark btn-sm mr-1" onclick="edit(this)">Edit</button>
                     <button type="button" data-href="<?= base_url('package/' . $package['id'] . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-danger btn-sm mr-1">Delete</button>
                 
@@ -62,7 +61,7 @@ active
                         <input disabled type="text" class="form-control" id="price" name="price" placeholder="10000" value="<?= $package['price'] ?>">
                     </div>
                 </div>
-                <button type="submit" id="simpan" class="btn btn-success" onclick="" disabled>Simpan</button>
+                <button type="submit" id="simpan" class="btn btn-success" onclick="" disabled>Save</button>
                 <button type="reset" id="cancel" class="btn btn-danger" onclick="" disabled>Cancel</button>
             </form>
         </div>

@@ -66,39 +66,35 @@ class Outlet extends BaseController
         return view('outlet/create');
     }
 
-    public function delete($id)
-    {
-        $news = new MemberModel();
-        $news->delete($id);
-        return redirect('paket');
-    }
 
     public function edit($id)
     {
 
-        $Pelanggan = new MemberModel();
-        $data['pelanggan'] = $Pelanggan->where('id_member', $id)->first();
+        $outlet = new OutletModel();
 
+        $data = [
+            "name" => $this->request->getPost('name'),
+            "address" => $this->request->getPost('address'),
+            "telephone" => $this->request->getPost('telephone'),
+            "lat" => $this->request->getPost('latitude'),
+            "lng" => $this->request->getPost('longtitude')
+        ];
 
-        $validation =  \Config\Services::validation();
-        $validation->setRules([
-            'nama_member' => 'required',
-            'alamat_member' => 'required'
-        ]);
-        $isDataValid = $validation->withRequest($this->request)->run();
-
-        if ($isDataValid) {
-            $Pelanggan->update($id, [
-                "nama_member" => $this->request->getPost('nama_member'),
-                "alamat_member" => $this->request->getPost('alamat_member'),
-                "jenis_kelamin" => $this->request->getPost('jenis_kelamin'),
-                "telp_member" => $this->request->getPost('telp_member'),
-                "no_ktp" => $this->request->getPost('no_ktp')
-            ]);
-            return redirect('pelanggan');
+        if (!$outlet->update($id,$data)) {
+            $data['id'] = $id;
+            $data['outlet'] = $data;
+            $outlet->select('*');
+            $outlet->where('id = ' . user()->profile_id);
+            $data['outlet'] = $outlet->get()->getResult();
+            $data['errors'] =$outlet->errors();
+            return view('outlet/index', $data);
+        } else {
+            return redirect()->to(base_url('outlet'))->with('message', "Update Outlet successfully");
         }
 
-        return view('pelanggan/edit', $data);
+        return redirect('pelanggan');
+
+        // return view('pelanggan/edit', $data);
         // echo json_encode($data['pelanggan']) ;
     }
 }

@@ -48,30 +48,30 @@ if (!empty($errors)) : ?>
         <!-- <button type="button" class="btn btn-info">Tambah</button> -->
     </div>
     <div class="card-body border-left-primary">
-        <form method="post" action="<?= base_url('outlet/' . $outlet[0]->id  . '/update') ?>">
+        <form method="post" action="<?= base_url('outlet/' . $outlet[0]->id  . '/edit') ?>">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Address Label</label>
-                    <input disabled type="text" class="form-control" id="name" name="name" placeholder="Label" value="<?= $outlet[0]->name ?>">
+                    <input disabled type="text" class="form-control" id="name" name="name" placeholder="Label" value="<?= $outlet[0]->name ?>" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="telephone">Telephone</label>
-                    <input disabled type="number" class="form-control" id="telephone" name="telephone" placeholder="Label" value="<?= $outlet[0]->name ?>">
+                    <input disabled type="number" class="form-control" id="telephone" name="telephone" placeholder="Label" value="<?= $outlet[0]->telephone ?>" required>
                 </div>
             </div>
             <div class="form-row">
 
                 <div class="form-group col-md-6">
                     <label for="address">Address</label>
-                    <textarea disabled class="form-control" id="address" name="address" placeholder="Full Address"><?php echo $outlet[0]->address ?></textarea>
+                    <textarea disabled class="form-control" id="address" name="address" placeholder="Full Address" required><?php echo $outlet[0]->address ?></textarea>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="latitude">Latitude</label>
-                    <input readonly type="text" class="form-control" id="latitude" name="latitude" placeholder="8217" value="<?= $outlet[0]->lat ?>">
+                    <input readonly type="text" class="form-control" id="latitude" name="latitude" placeholder="8217" value="<?= $outlet[0]->lat ?>" required>
                 </div>
                 <div class="form-group col-md-3">
                     <label for="longtitude">Longitude</label>
-                    <input readonly type="text" class="form-control" id="longtitude" name="longtitude" placeholder="8217" value="<?= $outlet[0]->lng ?>">
+                    <input readonly type="text" class="form-control" id="longtitude" name="longtitude" placeholder="8217" value="<?= $outlet[0]->lng ?>" required>
                 </div>
             </div>
             <div class="form-row">

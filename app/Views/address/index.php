@@ -27,6 +27,7 @@ if (!empty($errors)) : ?>
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
+        
     <?php endforeach ?>
 
 <?php endif ?>
@@ -48,7 +49,7 @@ if (!empty($errors)) : ?>
         <!-- <button type="button" class="btn btn-info">Tambah</button> -->
     </div>
     <div class="card-body border-left-primary">
-        <form method="post" action="<?= base_url('address/' . $addresses[0]->id  . '/update') ?>">
+        <form method="post" action="<?= base_url('address/' . $addresses[0]->id  . '/update'); ?>">
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Address Label</label>
@@ -100,12 +101,12 @@ if (!empty($errors)) : ?>
     });
 
     var map = new L.Map('map', {
-        'center': [document.getElementById('latitude').value == 0 ? -6.445433: document.getElementById('latitude').value, document.getElementById('longtitude').value == 0 ? 106.868958:document.getElementById('longtitude').value],
+        'center': [document.getElementById('latitude').value == 0 ? -6.445433 : document.getElementById('latitude').value, document.getElementById('longtitude').value == 0 ? 106.868958 : document.getElementById('longtitude').value],
         'zoom': 12,
         'layers': [tileLayer]
     });
 
-    var marker = L.marker([document.getElementById('latitude').value == 0 ? -6.445433: document.getElementById('latitude').value, document.getElementById('longtitude').value == 0 ? 106.868958:document.getElementById('longtitude').value], {
+    var marker = L.marker([document.getElementById('latitude').value == 0 ? -6.445433 : document.getElementById('latitude').value, document.getElementById('longtitude').value == 0 ? 106.868958 : document.getElementById('longtitude').value], {
         draggable: true
     }).addTo(map);
 

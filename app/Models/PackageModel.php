@@ -28,7 +28,7 @@ class PackageModel extends Model
         "name" => "required|min_length[2]|max_length[255]",
         "price" => "required",
     ];
-    protected $validationMessages   = [
+    protected $validationMessages   = [ 
         "name" => [
             "required" => "Name is required",
             "min_length" => "Minimum length of name should be 2 chars",

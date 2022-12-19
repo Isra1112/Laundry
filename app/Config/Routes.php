@@ -36,10 +36,8 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
-$routes->get('/', 'Test::index');
+$routes->get('/', 'User::isLogin');
 $routes->get('/dashboard', 'Home::dashboard');
-$routes->get('/home', 'Home::index');
-$routes->get('/home/about', 'Home::about');
 
 
 $routes->group('profile', function($routes){
@@ -106,7 +104,6 @@ $routes->group('user', function($routes){
 
 $routes->group('transaction', function($routes){
 	$routes->get('', 'Transaction::index');
-	$routes->get('konfirmasi', 'Transaction::konfirmasi');
 	$routes->get('(:segment)/preview', 'Transaction::preview/$1');
 	$routes->get('(:segment)/print', 'Transaction::print/$1');
     $routes->add('create', 'Transaction::create');
@@ -114,6 +111,17 @@ $routes->group('transaction', function($routes){
 	$routes->add('(:segment)/edit', 'Transaction::edit/$1');
 	$routes->get('(:segment)/delete', 'Transaction::delete/$1');
 	$routes->get('history', 'Transaction::history');
+	$routes->get('topickup', 'Transaction::toPickUp');
+	$routes->get('todelivery', 'Transaction::toDelivery');
+});
+
+$routes->group('tracking', function($routes){
+	$routes->get('', 'Tracking::index');
+	$routes->get('(:segment)/preview', 'Tracking::preview/$1');
+    $routes->add('create', 'Tracking::create');
+	$routes->get('(:num)/(:num)/status', 'Tracking::status/$1/$2');
+	$routes->add('(:segment)/edit', 'Tracking::edit/$1');
+	$routes->get('(:segment)/delete', 'Tracking::delete/$1');
 });
 
 

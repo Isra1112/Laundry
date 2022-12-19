@@ -30,7 +30,7 @@ class Profile extends Migration
                 'default' => null
             ],
             'telephone'       => [
-                'type' => 'int',
+                'type' => 'bigint',
                 'constraint' => '12',
                 'default' => null
             ],

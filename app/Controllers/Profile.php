@@ -14,19 +14,17 @@ class Profile extends BaseController
 
     public function getProfile()
     {
-        $users = user();
         $builder = new ProfileModel();
         $builder->select('*');
-        $builder->where('id = '.user()->profile_id);
+        $builder->where('id = ' . user()->profile_id);
         $data['profiles'] = $builder->get()->getResult();
-        return view('profile/index',$data);
+        return view('profile/index', $data);
         // echo json_encode($data);
     }
-     public function update($id)
-     {
+    public function update($id)
+    {
         $profileModel = new ProfileModel();
 
-        $session = session();
 
         $data = [
             "fullname" => $this->request->getVar("fullname"),
@@ -34,16 +32,16 @@ class Profile extends BaseController
             "birthdate" => $this->request->getVar("birthdate"),
             "gender" => $this->request->getVar("gender"),
         ];
-        if (!$profileModel->update($id,$data)) {
+        if (!$profileModel->update($id, $data)) {
             $data['id'] = $id;
-            $data['profiles'] = $data;
-            return view('profile/index', [
-                'errors' => $profileModel->errors(),
-                'package'=> $data
-            ]);
+            $data['errors'] =  $profileModel->errors();
+            $profileModel->select('*');
+            $profileModel->where('id = ' . user()->profile_id);
+            $data['profiles'] = $profileModel->get()->getResult();
+            return view('profile/index', $data);
         } else {
             // $session->setFlashdata("message", "Update Data Package successfully");
             return redirect()->to(base_url('profile'))->with('message', "Update Profile successfully");
         }
-     }
+    }
 }
