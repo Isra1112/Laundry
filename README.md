@@ -2,6 +2,7 @@
 
 [demo](http://isra-km.my.id/).<br />
 username : admin <br />
+username : staff <br />
 username : user <br />
 password : !p4ssw0rd<br />
 
