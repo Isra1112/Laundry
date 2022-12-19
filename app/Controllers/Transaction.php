@@ -20,7 +20,6 @@ class Transaction extends BaseController
     {
         $db = new TransactionModel();
         $builder = $db;
-        // $builder->select('transactions.*, tp.*, p.name as package_name, c.name as customer_name, c.telephone as customer_telp, c.address as customer_address,u.name as user_name,r.name as role_name');
         $builder->select('transactions.*,pro.fullname as name,pro.telephone,a.address,count(p.id) as package_selected');
         $builder->join('transactions_packages as tp', 'transactions.id = tp.transaction_id','inner');
         $builder->join('packages as p', 'p.id = tp.package_id','inner');
@@ -40,10 +39,25 @@ class Transaction extends BaseController
         $builder2->join('address as a', 'a.id = u.address_id','inner');
         $builder2->join('profiles as pro', 'pro.id = u.profile_id','inner');
         $builder2->where('transactions.deleted_at is NULL');
-        $builder2->where('transactions.delivery IS NOT NULL and transactions.status = "ready"');
+        $builder2->where('transactions.delivery != 0 and transactions.status = "ready"');
         $builder2->orderBy('transactions.created_at','DESC');
         $builder2->groupBy('transactions.id');
         $data['toDelivery'] = $builder2->get()->getResult();
+
+        $builder3 = $db;
+        $builder3->select('transactions.*,pro.fullname as name,pro.telephone,a.address,count(p.id) as package_selected');
+        $builder3->join('transactions_packages as tp', 'transactions.id = tp.transaction_id','inner');
+        $builder3->join('packages as p', 'p.id = tp.package_id','inner');
+        $builder3->join('users as u', 'u.id = transactions.user_id','inner');
+        $builder3->join('address as a', 'a.id = u.address_id','inner');
+        $builder3->join('profiles as pro', 'pro.id = u.profile_id','inner');
+        $builder3->where('transactions.deleted_at is NULL');
+        $builder3->where('transactions.delivery != 0 and transactions.status = "new"');
+        $builder3->orderBy('transactions.created_at','DESC');
+        $builder3->groupBy('transactions.id');
+        $data['toPickup'] = $builder3->get()->getResult();
+
+
         // echo json_encode($data);
         return view('transaction/index', $data);
         // echo "<pre>";
@@ -93,8 +107,8 @@ class Transaction extends BaseController
         $data = [
             'invoice' => 'DRY' . user()->id . random_int(1000, 9999),
             'user_id'    => user()->id,
-            'customer_id'    => 1,
-            'delivery' => $this->request->getPost('delivery') == 1 ? $this->request->getPost('deliv-price') : 0 
+            'delivery' => $this->request->getPost('delivery') == 1 ? $this->request->getPost('deliv-price') : 0,
+            'status' => 'new' 
         ];
 
         $transaction->insert($data);
@@ -120,7 +134,7 @@ class Transaction extends BaseController
             "total_price" => $this->request->getPost('totalPrice'),
             "base_price" => $this->request->getPost('totalPrice')
         ]);
-        return redirect()->to(base_url('transaction/create'));
+        return redirect()->to(base_url('transaction/create'))->with('message', "Create Transaction successfully");
     }
 
     public function history()
@@ -167,8 +181,9 @@ class Transaction extends BaseController
         $builder->join('transactions as t', 't.id = trackings.transaction_id', 'inner');
         $builder->join('users as u', 'u.id = trackings.staff_id', 'inner');
         $builder->join('profiles as p', 'p.id = u.profile_id', 'inner');
-        $tracking->where('trackings.transaction_id = ' .$id);
-        $data['trackings'] = $tracking->get()->getResult();
+        $builder->where('trackings.transaction_id = ' .$id);
+        $builder->orderBy('created_at DESC');
+        $data['trackings'] = $builder->get()->getResult();
 
         // echo json_encode($data);
         return view('transaction/detail', $data);
@@ -181,58 +196,108 @@ class Transaction extends BaseController
         return redirect('transaction');
     }
 
-    public function print()
+    public function print($id)
     {
-        return view('transaction/print');
+        $trs = new TransactionModel();
+        $builder = $trs;
+        $builder->select('transactions.*,u.email,p.fullname,p.telephone,a.name,a.address,a.note,a.lat,a.lng');
+        $builder->join('users as u', 'u.id = transactions.user_id', 'inner');
+        $builder->join('profiles as p', 'p.id = u.profile_id', 'inner');
+        $builder->join('address as a', 'a.id = u.address_id', 'inner');
+        $builder->where('transactions.id = ' .$id);
+        $data['transactions'] = $builder->get()->getResult();
+
+        $trspck = new TransactionPackageModel();
+        $builder = $trspck;
+        $builder->select('transactions_packages.*,p.name,p.price as pack_price');
+        $builder->join('transactions as t', 't.id = transactions_packages.transaction_id', 'inner');
+        $builder->join('packages as p', 'p.id = transactions_packages.package_id', 'inner');
+        $builder->where('transactions_packages.transaction_id = ' .$id);
+        $data['packages'] = $builder->get()->getResult();
+
+        return view('transaction/print',$data);
+        // echo json_encode($data);
+    }
+
+    public function toPickUp()
+    {
+        // $db = new TrackingModel();
+
+        // $builder = $db;
+        // $builder->select('*')->where('status_after = "picking up" and isDone is null and staff_id = '.user()->id)->orderBy('created_at',"desc");
+        // $data['tracking'] = $builder->get()->getResult();
+
+        // $id = [];
+
+        // foreach ($data['tracking'] as $key => $value) {
+        //     array_push($id,(int)$value->transaction_id);
+        // }
+
+        // $data['id'] = $id;
+
+        $db = new TransactionModel();
+        $builder2 = $db;
+        $builder2->select('transactions.*,pro.fullname as name,pro.telephone,a.address,count(p.id) as package_selected');
+        $builder2->join('transactions_packages as tp', 'transactions.id = tp.transaction_id','inner');
+        $builder2->join('packages as p', 'p.id = tp.package_id','inner');
+        $builder2->join('users as u', 'u.id = transactions.user_id','inner');
+        $builder2->join('address as a', 'a.id = u.address_id','inner');
+        $builder2->join('profiles as pro', 'pro.id = u.profile_id','inner');
+        // $builder2->where('transactions.deleted_at is NULL and transactions.id IN ('. implode(', ',$id) .')');
+        $builder2->where('transactions.deleted_at IS NULL and transactions.delivery != 0 and transactions.status = "picking up"');
+        $builder2->orderBy('transactions.created_at','DESC');
+        $builder2->groupBy('transactions.id');
+        $data['transactions'] = $builder2->get()->getResult();
+
+
+        // echo json_encode($data);
+        return view('transaction/topickup', $data);
+        // echo "<pre>";
+        // print_r($data);
+    }
+
+    public function toDelivery()
+    {
+        
+
+        $db = new TransactionModel();
+        $builder2 = $db;
+        $builder2->select('transactions.*,pro.fullname as name,pro.telephone,a.address,count(p.id) as package_selected');
+        $builder2->join('transactions_packages as tp', 'transactions.id = tp.transaction_id','inner');
+        $builder2->join('packages as p', 'p.id = tp.package_id','inner');
+        $builder2->join('users as u', 'u.id = transactions.user_id','inner');
+        $builder2->join('address as a', 'a.id = u.address_id','inner');
+        $builder2->join('profiles as pro', 'pro.id = u.profile_id','inner');
+        $builder2->where('transactions.deleted_at IS NULL and transactions.delivery != 0 and transactions.status = "on delivery"');
+        $builder2->orderBy('transactions.created_at','DESC');
+        $builder2->groupBy('transactions.id');
+        $data['transactions'] = $builder2->get()->getResult();
+
+
+        // echo json_encode($data);
+        return view('transaction/todelivery', $data);
     }
 
 
 
     public function edit($id)
     {
-        // $news = new MemberModel();
-        // $news->delete($id);
-        // return view('pelanggan/edit');
+        $transactionModel = new TransactionModel();
 
-
-        // ambil artikel yang akan diedit
-        // $Pelanggan = new MemberModel();
-        // $data['pelanggan'] = $Pelanggan->where('id_member', $id)->first();
-
-        // // lakukan validasi data artikel
-        // $validation =  \Config\Services::validation();
-        // $validation->setRules([
-        //     'nama_member' => 'required',
-        //     'alamat_member' => 'required'
-        // ]);
-        // $isDataValid = $validation->withRequest($this->request)->run();
-        // // jika data vlid, maka simpan ke database
-        // if ($isDataValid) {
-        //     $Pelanggan->update($id, [
-        //         "nama_member" => $this->request->getPost('nama_member'),
-        //         "alamat_member" => $this->request->getPost('alamat_member'),
-        //         "jenis_kelamin" => $this->request->getPost('jenis_kelamin'),
-        //         "telp_member" => $this->request->getPost('telp_member'),
-        //         "no_ktp" => $this->request->getPost('no_ktp')
-        //     ]);
-        //     return redirect('pelanggan');
-        // }
-
-        // tampilkan form edit
-        // return view('pelanggan/edit', $data);
-        return view('transaction/edit');
-        // echo json_encode($data['pelanggan']) ;
+        $data = [
+            "paid" => $this->request->getVar("pay")+$this->request->getVar("paid")
+        ];
+        if (!$transactionModel->update($id,$data)) {
+            $data['id'] = $id;
+            $data['transactions'] = $data;
+            return view('address/index', [
+                'errors' => $transactionModel->errors(),
+                'package'=> $data
+            ]);
+        } else {
+            return redirect()->to(base_url('transaction/'.$id.'/preview'))->with('message', "Edit Paid successfully");
+        }
     }
 
-    public function konfirmasi()
-    {
-
-        $db = \Config\Database::connect();
-        $query   = $db->query('SELECT * FROM detail_transaksi INNER JOIN transaksi ON detail_transaksi.transaksi_id=transaksi.id_transaksi 
-        INNER JOIN member ON member.id_member=transaksi.member_id where transaksi.status_bayar = "belum"');
-        $results['transaksi'] = $query->getResult();
-
-        // echo json_encode($results);
-        return view('transaksi/konfirmasi', $results);
-    }
+    
 }

@@ -52,18 +52,18 @@ active
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="fullname">Fullname</label>
-                    <input disabled type="text" class="form-control" id="fullname" name="fullname" placeholder="Mbape" value="<?= $profiles[0]->fullname ?>">
+                    <input required disabled type="text" class="form-control" id="fullname" name="fullname" placeholder="Mbape" value="<?= $profiles[0]->fullname ?>">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="telephone">Telephone</label>
-                    <input disabled type="number" class="form-control" id="telephone" name="telephone" placeholder="0878277218" value="<?= '0' . $profiles[0]->telephone ?>">
+                    <input required disabled type="number" class="form-control" id="telephone" name="telephone" placeholder="0878277218" value="<?= $profiles[0]->telephone ?>">
 
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="gender">Gender</label>
-                    <select disabled id="gender" name="gender" class="form-control">
+                    <select required disabled id="gender" name="gender" class="form-control">
                         <option <?php echo $profiles[0]->gender == null ? 'selected' : ''; ?> disabled>Choose Gender</option>
                         <option <?php echo $profiles[0]->gender == 'm' ? 'selected' : ''; ?> value="m">Male</option>
                         <option <?php echo $profiles[0]->gender == 'f' ? 'selected' : ''; ?> value="f">Female</option>
@@ -71,7 +71,7 @@ active
                 </div>
                 <div class="form-group col-md-6">
                     <label for="birthdate">Birth Date</label>
-                    <input disabled type="date" class="form-control group-text" id="birthdate" name="birthdate" placeholder="" value="<?php echo $profiles[0]->birthdate ?>">
+                    <input required disabled type="date" class="form-control group-text" id="birthdate" name="birthdate" placeholder="" value="<?php echo $profiles[0]->birthdate ?>">
                 </div>
             </div>
 
@@ -95,7 +95,7 @@ active
         document.getElementById('canceledit').disabled = false;
     }
 
-    function cancel(el) {
+    function cancel(el) { 
         document.getElementById('simpan').disabled = true;
         document.getElementById('cancel').disabled = true;
         document.getElementById('fullname').disabled = true;

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>.:: INVOICE ::.</title>
+    <title>MS Laundry - INVOICE</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <style type="text/css">
         .totals-row td {
@@ -161,8 +161,8 @@
                                         <tbody>
                                             <tr>
                                                 <td><span class="editable-area" id="business_info">
-                                                        <p style="font-size: 18pt;">Aneka Laundry </p>
-                                                        <p><br> Kalibata Selatan 1b No. 36<br> Telphon : 085694871343<br> Email: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ceafa0aba5af91b9abac8eb7afa6a1a1e0ada1e0a7aa">[email&#160;protected]</a></p>
+                                                        <p style="font-size: 18pt;">MS Laundry </p>
+                                                        <p><br> Jln Raya Tapos Ruko Permata Cimanggis<br> Telphon : 088787277 <br> Email : outlet@isra-km.my.id</p>
                                                     </span></td>
                                             </tr>
                                         </tbody>
@@ -190,9 +190,9 @@
                                                         <table cellspacing="0" cellpadding="0" border="0">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td style="padding-left:25px;"><span class="editable-area" id="client_info">hello<br>
-                                                                            jln.sari<br>
-                                                                            Telp: 1234567890</span></td>
+                                                                    <td style="padding-left:25px;"><span class="editable-area" id="client_info"><?php echo ($transactions[0]->fullname)? $transactions[0]->fullname : '-'; ?><br>
+                                                                    <?php echo ($transactions[0]->address)? $transactions[0]->address : '-'; ?><br>
+                                                                            Telp: <?php echo ($transactions[0]->telephone)? $transactions[0]->telephone : '-'; ?></span></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -207,19 +207,15 @@
                                         <tbody>
                                             <tr>
                                                 <td align="right"><strong><span class="editable-text" id="label_invoice_no">No. Order</span></strong></td>
-                                                <td style="padding-left:20px" align="left"><span class="editable-text" id="no">ORD-000159</span></td>
+                                                <td style="padding-left:20px" align="left"><span class="editable-text" id="no"><?php echo $transactions[0]->invoice ; ?></span></td>
                                             </tr>
                                             <tr>
-                                                <td align="right"><strong><span class="editable-text" id="label_date">Tgl. Transaksi</span></strong></td>
-                                                <td style="padding-left:20px" align="left"><span class="editable-text" id="date">11/23/2022</span></td>
+                                                <td align="right"><strong><span class="editable-text" id="label_date">Transaction Date</span></strong></td>
+                                                <td style="padding-left:20px" align="left"><span class="editable-text" id="date"><?php $date = date_create($transactions[0]->created_at) ; echo date_format($date, 'Y-m-d'); ?></span></td>
                                             </tr>
                                             <tr>
-                                                <td align="right"><strong><span class="editable-text" id="label_date">Jam Transaksi</span></strong></td>
-                                                <td style="padding-left:20px" align="left"><span class="editable-text" id="date">11:10:04</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td align="right"><strong><span class="editable-text" id="label_date">Tgl. Ambil</span></strong></td>
-                                                <td style="padding-left:20px" align="left"><span class="editable-text" id="date">11/30/2022</span></td>
+                                                <td align="right"><strong><span class="editable-text" id="label_date">Transaction Hour</span></strong></td>
+                                                <td style="padding-left:20px" align="left"><span class="editable-text" id="date"><?php $date = date_create($transactions[0]->created_at) ; echo date_format($date, 'H:i:s'); ; ?></span></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -233,29 +229,36 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Paket Laundry</th>
-                                <th>Berat/KG</th>
-                                <th>Harga</th>
+                                <th>Laundry Package</th>
+                                <th>Qty(KG)</th>
+                                <th>Price</th>
                                 <th width="100">Subtotal</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <tr>
-                                <td>1</td>
-                                <td>pakaian</td>
-                                <td>5</td>
-                                <td>Rp. 7.000,-</td>
-                                <td>Rp. 35.000,-</td>
+                        <?php foreach ($packages as $key => $package) : ?>
+                            <tr class="">
+                                <td><?= $key + 1 ?></td>
+                                <td><?= $package->name ?></td>
+                                <td><?= $package->quantity ?> Package</td>
+                                <td><?= "Rp. " . number_format($package->pack_price, 0, '', ',') ?></td>
+                                <td><?= "Rp. " . number_format($package->total_price, 0, '', ',') ?></td>
                             </tr>
+                        <?php endforeach ?>
 
                         </tbody>
 
                         <tfoot>
+                        <tr class="totals-row">
+                                <td colspan="3" class="wide-cell"></td>
+                                <td><strong>Delivery</strong></td>
+                                <td coslpan="2"><?= "Rp. " . number_format($transactions[0]->delivery, 0, '', ',') ?></td>
+                            </tr>
                             <tr class="totals-row">
                                 <td colspan="3" class="wide-cell"></td>
                                 <td><strong>Total</strong></td>
-                                <td coslpan="2">Rp. 35.000,-</td>
+                                <td coslpan="2"><?= "Rp. " . number_format($transactions[0]->total_price, 0, '', ',') ?></td>
                             </tr>
 
                         </tfoot>
@@ -263,14 +266,14 @@
                 </div>
 
                 <div class="notes-block">
-                    <div class="editable-area" id="notes" ><b>Keterangan:</b></div>
-                    <div class="notice">1. Pengambilan cucian harus membawa nota</div>
-                    <div class="notice">2. Cucian Luntur bukan tanggung jawab kami</div>
-                    <div class="notice">3. Hitung dan periksa sebelum pergi</div>
-                    <div class="notice">4. klaim kekurangan/kehilangan cucian setelah meninggalkan laundri tidak dilayani</div>
-                    <div class="notice">5. Cucian yang rusak/mengkerut karena sifat kain tidak dapat kami ganti</div>
-                    <div class="notice">6. Cucian yang tidak diambil lebih dari 1 bulan bukan tanggung jawab kami</div>
-                    <div class="notice">7. Maximal penggantian 10x dari total invoice dan barang menjadi milik kami</div>
+                    <div class="editable-area" id="notes" ><b>Note:</b></div>
+                    <div class="notice">1. No guarantee for Color, Jari and Material.</div>
+                    <div class="notice">2. If burning during ironing needed things will be done like stichting etc.</div>
+                    <div class="notice">3. No liabilities if clothes not collected in 1 month</div>
+                    <div class="notice">4. Any natural calamities, we are not responsible</div>
+                    <div class="notice">5. Check well before handling over the chlotes</div>
+                    <div class="notice">6. Cannot pick up without recipe</div>
+                    <div class="notice">7. Incase misplaces clothes 50% will be reffunded</div>
 
                 </div>
 

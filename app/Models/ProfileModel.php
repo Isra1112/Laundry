@@ -24,9 +24,32 @@ class ProfileModel extends Model
     protected $deletedField  = 'deleted_at';
 
     // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
+    protected $validationRules      = [
+        "fullname" => "required|min_length[2]|max_length[255]",
+        "telephone" => "required|min_length[10]|max_length[255]",
+        // "note" => "required",
+        "gender" => "required",
+        "birthdate" => "required",
+    ];
+    protected $validationMessages   = [ 
+        "fullname" => [
+            "required" => "Name is required",
+            "min_length" => "Minimum length of name should be 2 chars",
+            "max_length" => "Maximum length of name should be 255 chars",
+        ],
+        "telephone" => [
+            "required" => "Telephone is required",
+            "min_length" => "Minimum length of telephone should be 10 chars",
+            "max_length" => "Maximum length of telephone should be 255 chars",
+        ],
+        "gender" => [
+            "required" => "Gender is required"
+        ],
+        "birthdate" => [
+            "required" => "Birthdate is required"
+        ]
+    ];
+    protected $skipValidation       = false; 
     protected $cleanValidationRules = true;
 
     // Callbacks

@@ -9,8 +9,9 @@ class Email extends BaseConfig
     /**
      * @var string
      */
+    public $fromEmail = "isra19khhh@gmail.com";
     // public $fromEmail = "isra2@isra-km.my.id";
-    public $fromEmail = "johnabbruzi1980@gmail.com";
+    // public $fromEmail = "johnabbruzi1980@gmail.com";
 
     /**
      * @var string
@@ -48,24 +49,27 @@ class Email extends BaseConfig
      *
      * @var string
      */
+    public $SMTPHost ='smtp-relay.sendinblue.com';
     // public $SMTPHost ='mail.isra-km.my.id';
-    public $SMTPHost ='in-v3.mailjet.com';
+    // public $SMTPHost ='in-v3.mailjet.com';
 
     /**
      * SMTP Username
      *
      * @var string
      */
+    public $SMTPUser = 'isra19khhh@gmail.com';
     // public $SMTPUser = 'isra2@isra-km.my.id';
-    public $SMTPUser = 'e591d5bceded0cb07196a2294341b8e7';
+    // public $SMTPUser = 'e591d5bceded0cb07196a2294341b8e7';
 
     /**
      * SMTP Password
      *
      * @var string
      */
+    public $SMTPPass = 'M0CqGdbrwYaPj2nT';
     // public $SMTPPass = '098jantek123';
-    public $SMTPPass = 'd2c752e3ee562f05cd0c822fae679f1e';
+    // public $SMTPPass = 'd2c752e3ee562f05cd0c822fae679f1e';
 
     /**
      * SMTP Port

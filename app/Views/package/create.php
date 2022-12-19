@@ -1,5 +1,5 @@
 <?= $this->extend('layout/layout') ?>
-<?= $this->section('isActivePaket') ?>
+<?= $this->section('isActivePackage') ?>
 active
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>

@@ -14,7 +14,7 @@ class TrackingModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [];
+    protected $allowedFields    = ['description','status_before','status_after','paid','staff_id','transaction_id'];
 
     // Dates
     protected $useTimestamps = false;

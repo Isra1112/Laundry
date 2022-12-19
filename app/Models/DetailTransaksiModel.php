@@ -8,7 +8,7 @@ class DetailTransaksiModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'detail_transaksi';
-    protected $primaryKey       = 'id_detail';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';

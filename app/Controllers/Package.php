@@ -51,7 +51,7 @@ class Package extends BaseController
         ];
         echo $id;
         $packageModel->update($id,$data);
-        return redirect('package');
+        return redirect()->to(base_url('package'))->with('message', "Delete Package successfully");
     }
 
     public function edit($id)

@@ -5,7 +5,7 @@
 <p>To activate your account Click Here.</p>
 
 
-<p><a href="<?= url_to('activate-account') . '?token=' . $hash ?>">Activate</a>.</p>
+<p><a href="<?= url_to('activate-account') . '?token=' . $hash ?>"><button>Activate</button></a>.</p>
 
 <br>
 

@@ -30,9 +30,11 @@ class User extends BaseController
     }
 
     public function delete($id){
-        $news = new MemberModel();
-        $news->delete($id);
-        return redirect('paket');
+        $builder = new UserModel();
+        $builder->update($id,[
+            'deleted_at' => date('Y-m-d H:i:s')
+        ]);
+        return redirect('user');
     }
 
     public function edit($id){
@@ -58,6 +60,9 @@ class User extends BaseController
         return view('pelanggan/edit', $data);
         // echo json_encode($data['pelanggan']) ;
     }
-
+    public function isLogin()
+    {
+        return logged_in() ? redirect('dashboard') : view('index');
+    }
     
 }

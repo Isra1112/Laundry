@@ -20,7 +20,7 @@ active
                         <label>
                             <input name="date" type="radio" value="all"><strong> All Data</strong>
                         </label>
-                    </div>
+                    </div> 
                 </div>
                 <div class="form-row">
                     <div class="col">
