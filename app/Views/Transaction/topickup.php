@@ -33,7 +33,7 @@ active
                     </thead>
 
                     <tbody>
-
+                    <?php if ($transactions) : ?>
                         <?php foreach ($transactions as $key => $transaction) : ?>
                             <tr class="">
                                 <td><?= $key + 1 ?></td>
@@ -90,6 +90,14 @@ active
                                 </td>
                             </tr>
                         <?php endforeach ?>
+                        <?php else : ?>
+                            <tr class="odd text-center">
+                                <td valign="top" colspan="9" class="dataTables_empty">Data No available</td>
+                            </tr>
+                        <?php endif ?>
+                        
+                    </tbody>
+                        
                     </tbody>
                 </table>
             </div>

@@ -4,7 +4,31 @@ active
 <?= $this->endSection() ?>
 <?= $this->section('content') ?>
 
+<?php
+    // To print success flash message
+    if (session()->getFlashdata("message")) {
+    ?>
+        <div class="alert alert-success">
+            <?= session()->getFlashdata("message") ?>
+        </div>
+    <?php
+    }
+    ?>
 
+    <?php
+    // To print error messages
+    if (!empty($errors)) : ?>
+
+        <?php foreach ($errors as $field => $error) : ?>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <p><?= $error ?></p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <?php endforeach ?>
+
+    <?php endif ?>
     <!-- Page Heading -->
     <h1 class="h3 mb-3 text-gray-800">User</h1>
 

@@ -90,6 +90,10 @@ if (!empty($errors)) : ?>
                     <td><?php echo $transactions[0]->invoice ?></td>
                 </tr>
                 <tr>
+                    <td class="bg-primary text-gray-100 font-weight-bold" width="20%">Status</td>
+                    <td><?php echo $transactions[0]->status ?></td>
+                </tr>
+                <tr>
                     <td class="bg-primary text-gray-100 font-weight-bold" width="20%">Email</td>
                     <td><?php echo $transactions[0]->email ?></td>
                 </tr>

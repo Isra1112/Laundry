@@ -2,7 +2,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>.:: Laporan Pemasukan Harian Laundry ::.</title>
+    <title>MS Laundry - INCOME REPORT </title>
     <style type="text/css">
         * {
             margin: 0;
@@ -60,9 +60,9 @@
         <div id="judul">
             <br />
             <br />
-            <font size="+3">LAPORAN PEMASUKAN HARIAN MS Laundry </font><br />
+            <font size="+3">INCOME REPORT MS LAUNDRY </font><br />
             Jln Raya Tapos Ruko Permata Cimanggis<br />
-            Hp. 088787277 Email : outlet@isra-km.my.id Website : www.isra-km.my.id
+            Hp: 088787277 Email : outlet@isra-km.my.id Website : www.isra-km.my.id
 
             <hr color="#eee" />
         </div>
@@ -79,7 +79,7 @@
             <th>Status Trs</th>
             <th>Date</th>
         </tr>
-
+        <?php if($transactions) :?>
         <?php foreach ($transactions as $key => $transaction) : ?>
             <tr class="">
                 <td><?= $transaction->invoice ?></td>
@@ -91,6 +91,11 @@
                 <td><?= $transaction->created_at ?></td>
             </tr>
         <?php endforeach ?>
+        <?php else : ?>
+            <tr class="odd " >
+                        <td valign="top" colspan="8" class="dataTables_empty" style="text-align: center; padding: 20px;">Data No available</td>
+                    </tr>
+        <?php endif ?>
 
     </table>
 </body>
