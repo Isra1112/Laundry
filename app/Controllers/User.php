@@ -34,7 +34,7 @@ class User extends BaseController
         $builder->update($id,[
             'deleted_at' => date('Y-m-d H:i:s')
         ]);
-        return redirect('user');
+        return redirect()->to(base_url('user'))->with('message', "Delete User successfully");;
     }
 
     public function edit($id){

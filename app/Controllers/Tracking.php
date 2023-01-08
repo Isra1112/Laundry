@@ -10,7 +10,7 @@ class Tracking extends BaseController
 {
     public function index()
     {
-        return 'dsa';
+        
     }
 
     public function status($code, $trsId)

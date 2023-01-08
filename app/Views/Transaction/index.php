@@ -92,8 +92,8 @@ active
                                 <td>
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <a href="<?= base_url('transaction/' . $transaction->id . '/preview') ?>" data-href="<?= base_url('transactions/' . $transaction->id . '/preview') ?>" class="btn btn-sm btn-primary">Detail</a>
-                                        <?php if ($transaction->status == 'process' ) {
-                                            echo '<a method href="'.base_url('tracking/5/' . $transaction->id . '/status').'" data-href="'.base_url('tracking/5/' . $transaction->id . '/status').'" class="btn btn-sm btn-success">Process Done</a>';
+                                        <?php if ($transaction->status == 'process') {
+                                            echo '<a method href="' . base_url('tracking/5/' . $transaction->id . '/status') . '" data-href="' . base_url('tracking/5/' . $transaction->id . '/status') . '" class="btn btn-sm btn-success">Process Done</a>';
                                         } ?>
                                         <!-- <a href="#" data-href="<?= base_url('transactions/' . $transaction->user_id . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-danger">Delete</a> -->
                                     </div>
@@ -132,65 +132,71 @@ active
                     </thead>
 
                     <tbody>
-
-                        <?php foreach ($toPickup as $key => $transaction) : ?>
-                            <tr class="">
-                                <td><?= $key + 1 ?></td>
-                                <td><?= $transaction->invoice ?></td>
-                                <td><?= $transaction->name ?></td>
-                                <td><?= $transaction->address ?></td>
-                                <td><?= "Rp. " . number_format($transaction->total_price, 0, '', ',') ?></td>
-                                <td class="<?= ($transaction->total_price <= $transaction->paid) ? '' : 'text-danger font-weight-bold'; ?>"><?= ($transaction->total_price <= $transaction->paid) ? "Rp. " . number_format($transaction->paid, 0, '', ',') : "Rp. " . number_format($transaction->paid, 0, '', ','); ?></td>
-                                <td>
-                                    <?php
-                                    switch ($transaction->status) {
-                                        case "ready":
-                                            echo '<div class="badge badge-dark text-wrap" style="width: 3.5rem;">
+                        <?php if ($toPickup) : ?>
+                            <?php foreach ($toPickup as $key => $transaction) : ?>
+                                <tr class="">
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $transaction->invoice ?></td>
+                                    <td><?= $transaction->name ?></td>
+                                    <td><?= $transaction->address ?></td>
+                                    <td><?= "Rp. " . number_format($transaction->total_price, 0, '', ',') ?></td>
+                                    <td class="<?= ($transaction->total_price <= $transaction->paid) ? '' : 'text-danger font-weight-bold'; ?>"><?= ($transaction->total_price <= $transaction->paid) ? "Rp. " . number_format($transaction->paid, 0, '', ',') : "Rp. " . number_format($transaction->paid, 0, '', ','); ?></td>
+                                    <td>
+                                        <?php
+                                        switch ($transaction->status) {
+                                            case "ready":
+                                                echo '<div class="badge badge-dark text-wrap" style="width: 3.5rem;">
                                             Ready
                                             </div>';
-                                            break;
-                                        case "process":
-                                            echo '<div class="badge badge-warning text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "process":
+                                                echo '<div class="badge badge-warning text-wrap" style="width: 3.5rem;">
                                             Process
                                             </div>';
-                                            break;
-                                        case "done":
-                                            echo '<div class="badge badge-success text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "done":
+                                                echo '<div class="badge badge-success text-wrap" style="width: 3.5rem;">
                                             Done
                                             </div>';
-                                            break;
-                                        case "picking up":
-                                            echo '<div class="badge badge-primary text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "picking up":
+                                                echo '<div class="badge badge-primary text-wrap" style="width: 3.5rem;">
                                         Picking Up
                                                 </div>';
-                                            break;
-                                        case "on delivery":
-                                            echo '<div class="badge badge-info text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "on delivery":
+                                                echo '<div class="badge badge-info text-wrap" style="width: 3.5rem;">
                                                     On Delivery
                                                     </div>';
-                                            break;
-                                        case "new":
-                                            echo '<div class="badge badge-danger text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "new":
+                                                echo '<div class="badge badge-danger text-wrap" style="width: 3.5rem;">
                                                         New
                                                         </div>';
-                                            break;
-                                        default:
-                                            echo $transaction->status;
-                                    } ?>
-                                </td>
-                                <td><?= $transaction->created_at ?></td>
+                                                break;
+                                            default:
+                                                echo $transaction->status;
+                                        } ?>
+                                    </td>
+                                    <td><?= $transaction->created_at ?></td>
 
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="<?= base_url('transaction/' . $transaction->id . '/preview') ?>" data-href="<?= base_url('transactions/' . $transaction->id . '/preview') ?>" class="btn btn-sm btn-primary">Detail</a>
-                                        <?php if(in_groups('staff')) : ?>
-                                        <a method href="<?= base_url('tracking/1/' . $transaction->id . '/status') ?>" data-href="<?= base_url('tracking/1/' . $transaction->id . '/status') ?> ?>" class="btn btn-sm btn-success">Pick Up</a>
-                                        <?php endif ?>
-                                        <!-- <a href="#" data-href="<?= base_url('transactions/' . $transaction->user_id . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-danger">Delete</a> -->
-                                    </div>
-                                </td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a href="<?= base_url('transaction/' . $transaction->id . '/preview') ?>" data-href="<?= base_url('transactions/' . $transaction->id . '/preview') ?>" class="btn btn-sm btn-primary">Detail</a>
+                                            <?php if (in_groups('staff')) : ?>
+                                                <a method href="<?= base_url('tracking/1/' . $transaction->id . '/status') ?>" data-href="<?= base_url('tracking/1/' . $transaction->id . '/status') ?> ?>" class="btn btn-sm btn-success">Pick Up</a>
+                                            <?php endif ?>
+                                            <!-- <a href="#" data-href="<?= base_url('transactions/' . $transaction->user_id . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-danger">Delete</a> -->
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php else : ?>
+                            <tr class="odd text-center">
+                                <td valign="top" colspan="9" class="dataTables_empty">Data No available</td>
                             </tr>
-                        <?php endforeach ?>
+                        <?php endif ?>
+
                     </tbody>
                 </table>
             </div>
@@ -223,65 +229,71 @@ active
                     </thead>
 
                     <tbody>
-
-                        <?php foreach ($toDelivery as $key => $transaction) : ?>
-                            <tr class="">
-                                <td><?= $key + 1 ?></td>
-                                <td><?= $transaction->invoice ?></td>
-                                <td><?= $transaction->name ?></td>
-                                <td><?= $transaction->address ?></td>
-                                <td><?= "Rp. " . number_format($transaction->total_price, 0, '', ',') ?></td>
-                                <td class="<?= ($transaction->total_price <= $transaction->paid) ? '' : 'text-danger font-weight-bold'; ?>"><?= ($transaction->total_price <= $transaction->paid) ? "Rp. " . number_format($transaction->paid, 0, '', ',') : "Rp. " . number_format($transaction->paid, 0, '', ','); ?></td>
-                                <td>
-                                    <?php
-                                    switch ($transaction->status) {
-                                        case "ready":
-                                            echo '<div class="badge badge-dark text-wrap" style="width: 3.5rem;">
+                        <?php if ($toDelivery) : ?>
+                            <?php foreach ($toDelivery as $key => $transaction) : ?>
+                                <tr class="">
+                                    <td><?= $key + 1 ?></td>
+                                    <td><?= $transaction->invoice ?></td>
+                                    <td><?= $transaction->name ?></td>
+                                    <td><?= $transaction->address ?></td>
+                                    <td><?= "Rp. " . number_format($transaction->total_price, 0, '', ',') ?></td>
+                                    <td class="<?= ($transaction->total_price <= $transaction->paid) ? '' : 'text-danger font-weight-bold'; ?>"><?= ($transaction->total_price <= $transaction->paid) ? "Rp. " . number_format($transaction->paid, 0, '', ',') : "Rp. " . number_format($transaction->paid, 0, '', ','); ?></td>
+                                    <td>
+                                        <?php
+                                        switch ($transaction->status) {
+                                            case "ready":
+                                                echo '<div class="badge badge-dark text-wrap" style="width: 3.5rem;">
                                             Ready
                                             </div>';
-                                            break;
-                                        case "process":
-                                            echo '<div class="badge badge-warning text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "process":
+                                                echo '<div class="badge badge-warning text-wrap" style="width: 3.5rem;">
                                             Process
                                             </div>';
-                                            break;
-                                        case "done":
-                                            echo '<div class="badge badge-success text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "done":
+                                                echo '<div class="badge badge-success text-wrap" style="width: 3.5rem;">
                                             Done
                                             </div>';
-                                            break;
-                                        case "picking up":
-                                            echo '<div class="badge badge-primary text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "picking up":
+                                                echo '<div class="badge badge-primary text-wrap" style="width: 3.5rem;">
                                         Picking Up
                                                 </div>';
-                                            break;
-                                        case "on delivery":
-                                            echo '<div class="badge badge-info text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "on delivery":
+                                                echo '<div class="badge badge-info text-wrap" style="width: 3.5rem;">
                                                     On Delivery
                                                     </div>';
-                                            break;
-                                        case "new":
-                                            echo '<div class="badge badge-danger text-wrap" style="width: 3.5rem;">
+                                                break;
+                                            case "new":
+                                                echo '<div class="badge badge-danger text-wrap" style="width: 3.5rem;">
                                                         New
                                                         </div>';
-                                            break;
-                                        default:
-                                            echo $transaction->status;
-                                    } ?>
-                                </td>
-                                <td><?= $transaction->created_at ?></td>
+                                                break;
+                                            default:
+                                                echo $transaction->status;
+                                        } ?>
+                                    </td>
+                                    <td><?= $transaction->created_at ?></td>
 
-                                <td>
-                                    <div class="btn-group" role="group" aria-label="Basic example">
-                                        <a href="<?= base_url('transaction/' . $transaction->id . '/preview') ?>" data-href="<?= base_url('transactions/' . $transaction->id . '/preview') ?>" class="btn btn-sm btn-primary">Detail</a>
-                                        <?php if(in_groups('staff')) : ?>
-                                        <a method href="<?= base_url('tracking/3/' . $transaction->id . '/status') ?>" data-href="<?= base_url('tracking/3/' . $transaction->id . '/status') ?> ?>" class="btn btn-sm btn-success">Deliver</a>
-                                        <?php endif ?>
-                                        <!-- <a href="#" data-href="<?= base_url('transactions/' . $transaction->user_id . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-danger">Delete</a> -->
-                                    </div>
-                                </td>
+                                    <td>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <a href="<?= base_url('transaction/' . $transaction->id . '/preview') ?>" data-href="<?= base_url('transactions/' . $transaction->id . '/preview') ?>" class="btn btn-sm btn-primary">Detail</a>
+                                            <?php if (in_groups('staff')) : ?>
+                                                <a method href="<?= base_url('tracking/3/' . $transaction->id . '/status') ?>" data-href="<?= base_url('tracking/3/' . $transaction->id . '/status') ?> ?>" class="btn btn-sm btn-success">Deliver</a>
+                                            <?php endif ?>
+                                            <!-- <a href="#" data-href="<?= base_url('transactions/' . $transaction->user_id . '/delete') ?>" onclick="confirmToDelete(this)" class="btn btn-sm btn-danger">Delete</a> -->
+                                        </div>
+                                    </td>
+                                </tr>
+                            <?php endforeach ?>
+                        <?php else : ?>
+                            <tr class="odd text-center">
+                                <td valign="top" colspan="9" class="dataTables_empty">Data No available</td>
                             </tr>
-                        <?php endforeach ?>
+                        <?php endif ?>
+
                     </tbody>
                 </table>
             </div>
